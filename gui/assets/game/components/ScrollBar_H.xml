@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="200,14" extention="ScrollBar">
+  <displayList>
+    <image id="n0_sd35" name="n0" src="sd358d" fileName="images/scroll_h_back.png" xy="0,0" size="200,14">
+      <relation target="" sidePair="width-width"/>
+    </image>
+    <graph id="n1_sd35" name="bar" xy="0,0" size="200,14">
+      <relation target="" sidePair="width-width"/>
+    </graph>
+    <component id="n2_sd35" name="grip" src="sd358e" fileName="components/ScrollBar_H_grip.xml" xy="1,0"/>
+  </displayList>
+  <ScrollBar/>
+</component>

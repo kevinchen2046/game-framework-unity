@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="500,651">
+  <displayList>
+    <image id="n0_tun8" name="n0" src="hx629" fileName="images/back.png" xy="0,0" size="500,651"/>
+    <component id="n2_tun8" name="btnClose" src="sd358i" fileName="components/ButtonClose.xml" xy="431,21"/>
+    <text id="n3_tun8" name="n3" xy="211,27" size="77,43" fontSize="34" color="#ffffff" align="center" autoSize="none" bold="true" strokeColor="#000000" strokeSize="2" text="工具"/>
+    <component id="n4_tun8" name="n4" src="tun88v" fileName="components/ButtonYellow.xml" xy="165,528" size="170,79">
+      <Button title="使用" titleFontSize="30"/>
+    </component>
+    <image id="n5_tun8" name="bar" src="hx628" fileName="images/bar.png" xy="31,96" size="443,410"/>
+    <text id="n6_tun8" name="namelab" xy="202,108" size="96,33" fontSize="24" color="#ffffff" align="center" autoSize="none" bold="true" text="星球&#xA;&#xA;"/>
+    <text id="n7_tun8" name="infolab" xy="55,382" size="394,101" fontSize="18" color="#ffffff" align="center" autoSize="none" bold="true" text="&#xA;&#xA;"/>
+  </displayList>
+</component>

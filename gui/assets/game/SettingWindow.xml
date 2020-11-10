@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="400,300">
+  <displayList>
+    <image id="n0_rmxx" name="n0" src="hx629" fileName="images/back.png" xy="0,0" size="400,300"/>
+    <image id="n1_rmxx" name="n1" src="hx628" fileName="images/bar.png" xy="35,73" size="340,185"/>
+    <component id="n2_rmxx" name="btnClose" src="sd358i" fileName="components/ButtonClose.xml" xy="332,15"/>
+    <component id="n3_rmxx" name="btnEffect" src="rmxx8o" fileName="components/ButtonToggle.xml" xy="226,101"/>
+    <component id="n4_rmxx" name="btnMusic" src="rmxx8o" fileName="components/ButtonToggle.xml" xy="226,179"/>
+    <text id="n5_rmxx" name="n5" xy="92,107" size="79,42" fontSize="30" color="#ffffff" autoSize="none" text="音效&#xA;"/>
+    <text id="n7_rmxx" name="n7" xy="92,185" size="84,42" fontSize="30" color="#ffffff" autoSize="none" text="音乐&#xA;"/>
+    <text id="n8_rmxx" name="n8" xy="161,20" size="77,43" fontSize="34" color="#ffffff" autoSize="none" bold="true" strokeColor="#000000" strokeSize="2" text="设置&#xA;&#xA;"/>
+  </displayList>
+</component>

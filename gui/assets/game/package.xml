@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<packageDescription id="8infi6sh">
+  <resources>
+    <image id="hx620" name="progress_bar.png" path="/images/" exported="true" scale="9grid" scale9grid="19,0,11,32"/>
+    <image id="hx621" name="progress_back.png" path="/images/" exported="true" scale="9grid" scale9grid="20,0,10,32"/>
+    <image id="hx622" name="icon_money.png" path="/images/" exported="true"/>
+    <image id="hx623" name="icon_dps.png" path="/images/" exported="true"/>
+    <image id="hx624" name="btn_yellow.png" path="/images/" exported="true" scale="9grid" scale9grid="18,20,10,7"/>
+    <image id="hx625" name="btn_green.png" path="/images/" exported="true" scale="9grid" scale9grid="19,18,10,8"/>
+    <image id="hx626" name="btn_equip.png" path="/images/" exported="true"/>
+    <image id="hx627" name="btn_blue.png" path="/images/" exported="true" scale="9grid" scale9grid="19,20,10,7"/>
+    <image id="hx628" name="bar.png" path="/images/" exported="true" scale="9grid" scale9grid="42,41,21,21"/>
+    <image id="hx629" name="back.png" path="/images/" exported="true" scale="9grid" scale9grid="38,39,22,19"/>
+    <component id="hx627s" name="GameInfoBar.xml" path="/" exported="true"/>
+    <component id="hx62a" name="ButtonTab.xml" path="/components/" exported="true"/>
+    <component id="hx62b" name="ProgressBarYellow.xml" path="/components/" exported="true"/>
+    <image id="hx62c" name="bar2.png" path="/images/" exported="true" scale="9grid" scale9grid="23,24,22,18" gridTile="31"/>
+    <image id="hx62d" name="text_upgrade.png" path="/images/" exported="true"/>
+    <image id="hx62e" name="text_hire.png" path="/images/" exported="true"/>
+    <image id="hx62f" name="text_buy.png" path="/images/" exported="true"/>
+    <component id="hx62g" name="ShopItem.xml" path="/components/" exported="true"/>
+    <component id="hx62h" name="ButtonIconGreen.xml" path="/components/" exported="true"/>
+    <component id="hx62n" name="MainView.xml" path="/" exported="true"/>
+    <component id="hx62o" name="MoneyBar.xml" path="/" exported="true"/>
+    <component id="hx62p" name="DpsBar.xml" path="/" exported="true"/>
+    <component id="hx62q" name="ButtonEquip.xml" path="/components/" exported="true"/>
+    <image id="pdqb7t" name="f_text0016.png" path="/fonts/" exported="true"/>
+    <image id="pdqb7u" name="f_text0015.png" path="/fonts/" exported="true"/>
+    <image id="pdqb7v" name="f_text0014.png" path="/fonts/" exported="true"/>
+    <image id="pdqb7w" name="f_text0013.png" path="/fonts/" exported="true"/>
+    <image id="pdqb7x" name="f_text0012.png" path="/fonts/" exported="true"/>
+    <image id="pdqb7y" name="f_text0011.png" path="/fonts/" exported="true"/>
+    <image id="pdqb7z" name="f_text0010.png" path="/fonts/" exported="true"/>
+    <image id="pdqb80" name="f_text0009.png" path="/fonts/" exported="true"/>
+    <image id="pdqb81" name="f_text0008.png" path="/fonts/" exported="true"/>
+    <image id="pdqb82" name="f_text0007.png" path="/fonts/" exported="true"/>
+    <image id="pdqb83" name="f_text0006.png" path="/fonts/" exported="true"/>
+    <image id="pdqb84" name="f_text0005.png" path="/fonts/" exported="true"/>
+    <image id="pdqb85" name="f_text0004.png" path="/fonts/" exported="true"/>
+    <image id="pdqb86" name="f_text0003.png" path="/fonts/" exported="true"/>
+    <image id="pdqb87" name="f_text0002.png" path="/fonts/" exported="true"/>
+    <image id="pdqb88" name="f_text0001.png" path="/fonts/" exported="true"/>
+    <font id="pdqb89" name="Font1.fnt" path="/components/" exported="true"/>
+    <image id="pdqb8a" name="f_text0017.png" path="/fonts/" exported="true"/>
+    <image id="pdqb8b" name="f_text0018.png" path="/fonts/" exported="true"/>
+    <image id="sd358c" name="scroll_h_bar.png" path="/images/" exported="true" scale="9grid" scale9grid="10,0,26,14"/>
+    <image id="sd358d" name="scroll_h_back.png" path="/images/" exported="true" scale="9grid" scale9grid="10,0,36,14"/>
+    <component id="sd358e" name="ScrollBar_H_grip.xml" path="/components/" exported="true"/>
+    <component id="sd358f" name="ScrollBar_H.xml" path="/components/" exported="true"/>
+    <component id="sd358g" name="PlantWindow.xml" path="/" exported="true"/>
+    <image id="sd358h" name="btn_close.png" path="/images/" exported="true"/>
+    <component id="sd358i" name="ButtonClose.xml" path="/components/" exported="true"/>
+    <image id="rmxx8j" name="toggle_handler.png" path="/images/" exported="true"/>
+    <image id="rmxx8k" name="toggle_back.png" path="/images/" exported="true"/>
+    <image id="rmxx8l" name="icon_lock.png" path="/images/" exported="true"/>
+    <image id="rmxx8m" name="icon_share.png" path="/images/" exported="true"/>
+    <image id="rmxx8n" name="icon_setting.png" path="/images/" exported="true"/>
+    <component id="rmxx8o" name="ButtonToggle.xml" path="/components/" exported="true"/>
+    <component id="rmxx8p" name="SettingWindow.xml" path="/" exported="true"/>
+    <component id="rmxx8t" name="ButtonSetting.xml" path="/components/" exported="true"/>
+    <component id="rmxx8u" name="ButtonShare.xml" path="/components/" exported="true"/>
+    <component id="tun88v" name="ButtonYellow.xml" path="/components/" exported="true"/>
+    <component id="tun88w" name="ButtonGreen.xml" path="/components/" exported="true"/>
+    <component id="tun88x" name="ButtonBlue.xml" path="/components/" exported="true"/>
+    <component id="tun88y" name="ToolWindow.xml" path="/" exported="true"/>
+    <component id="z89z97" name="ButtonMenu1.xml" path="/components/" exported="true"/>
+    <component id="z89z98" name="ButtonMenu2.xml" path="/components/" exported="true"/>
+    <component id="z89z99" name="ButtonMenu3.xml" path="/components/" exported="true"/>
+    <component id="z89z9a" name="ButtonMenu4.xml" path="/components/" exported="true"/>
+    <component id="z89z9b" name="MenuView.xml" path="/" exported="true"/>
+    <image id="hb4d9k" name="menu_4_select.png" path="/images/" exported="true"/>
+    <image id="hb4d9l" name="menu_1.png" path="/images/" exported="true"/>
+    <image id="hb4d9m" name="menu_1_select.png" path="/images/" exported="true"/>
+    <image id="hb4d9n" name="menu_2.png" path="/images/" exported="true"/>
+    <image id="hb4d9o" name="menu_2_select.png" path="/images/" exported="true"/>
+    <image id="hb4d9p" name="menu_3.png" path="/images/" exported="true"/>
+    <image id="hb4d9q" name="menu_3_select.png" path="/images/" exported="true"/>
+    <image id="hb4d9r" name="menu_4.png" path="/images/" exported="true"/>
+    <image id="hb4d9s" name="bar3.png" path="/images/" exported="true" scale="9grid" scale9grid="16,16,32,32"/>
+    <component id="ix2l9t" name="AlertView.xml" path="/" exported="true"/>
+    <image id="ix2l9u" name="btn_red.png" path="/images/" exported="true" scale="9grid" scale9grid="20,19,11,10"/>
+    <component id="ix2l9v" name="ButtonRed.xml" path="/components/" exported="true"/>
+  </resources>
+  <publish name="game"/>
+</packageDescription>

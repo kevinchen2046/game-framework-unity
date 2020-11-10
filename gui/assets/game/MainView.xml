@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="640,1136" opaque="false">
+  <displayList>
+    <component id="n0_hx62" name="info" src="hx627s" fileName="GameInfoBar.xml" xy="0,696">
+      <relation target="" sidePair="width-width"/>
+    </component>
+    <component id="n1_hx62" name="n1" src="hx62o" fileName="MoneyBar.xml" xy="11,11"/>
+    <component id="n2_hx62" name="n2" src="hx62p" fileName="DpsBar.xml" xy="10,97"/>
+    <component id="n3_hx62" name="btnTool" src="hx62q" fileName="components/ButtonEquip.xml" xy="21,187"/>
+    <component id="n5_rmxx" name="btnShare" src="rmxx8u" fileName="components/ButtonShare.xml" xy="156,188"/>
+    <component id="n6_rmxx" name="btnSetting" src="rmxx8t" fileName="components/ButtonSetting.xml" xy="90,186"/>
+  </displayList>
+</component>

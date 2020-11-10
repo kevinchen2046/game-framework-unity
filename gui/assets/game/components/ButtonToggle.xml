@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="89,51" extention="Button">
+  <controller name="button" pages="0,up,1,down,2,over,3,selectedOver" selected="3"/>
+  <displayList>
+    <image id="n0_rmxx" name="n0" src="rmxx8k" fileName="images/toggle_back.png" xy="0,0">
+      <gearDisplay controller="button" pages="0,1,2,3"/>
+      <relation target="" sidePair="width-width,height-height"/>
+    </image>
+    <image id="n1_rmxx" name="n1" src="rmxx8j" fileName="images/toggle_handler.png" xy="42,5">
+      <gearDisplay controller="button" pages="0,1,2,3"/>
+      <gearXY controller="button" pages="1,3" values="43,5|42,5" default="5,5" tween="true"/>
+      <relation target="" sidePair=""/>
+    </image>
+  </displayList>
+  <Button mode="Check"/>
+</component>

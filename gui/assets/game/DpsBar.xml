@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="235,83">
+  <displayList>
+    <image id="n0_hx62" name="n0" src="hx629" fileName="images/back.png" xy="0,0" size="235,83"/>
+    <image id="n1_hx62" name="n1" src="hx623" fileName="images/icon_dps.png" xy="12,29" size="51,23"/>
+    <text id="n2_pdqb" name="lab" xy="70,22" size="188,45" aspect="true" scale="0.8,0.8" font="ui://8infi6shpdqb89" fontSize="36" align="center" autoSize="none" text="+341.6k"/>
+  </displayList>
+</component>

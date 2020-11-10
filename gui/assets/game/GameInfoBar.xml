@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="640,440">
+  <controller name="tab" homePageType="specific" homePage="2" pages="2,,3," selected="0"/>
+  <displayList>
+    <image id="n5_hx62" name="n5" src="hx629" fileName="images/back.png" xy="0,0" size="640,440">
+      <relation target="" sidePair="width-width"/>
+    </image>
+    <image id="n6_hx62" name="n6" src="hx628" fileName="images/bar.png" xy="35,95" size="572,293">
+      <relation target="" sidePair="width-width"/>
+    </image>
+    <component id="n2_hx62" name="n2" src="hx62a" fileName="components/ButtonTab.xml" xy="166,26" size="136,65">
+      <relation target="" sidePair="center-center"/>
+      <Button checked="true" title="&#xD;&#xD;" icon="ui://8infi6shhx62f" controller="tab" page="2"/>
+    </component>
+    <component id="n4_hx62" name="n4" src="hx62a" fileName="components/ButtonTab.xml" xy="328,27" size="136,65">
+      <gearDisplay controller="tab" pages="2,3"/>
+      <relation target="" sidePair="center-center"/>
+      <Button icon="ui://8infi6shhx62d" controller="tab" page="3"/>
+    </component>
+    <list id="n9_hx62" name="list" xy="43,112" size="555,267" layout="flow_vt" selectionMode="none" overflow="scroll" scroll="horizontal" scrollBarFlags="80" scrollBar="visible" scrollBarRes=",ui://8infi6shsd358f" clipSoftness="0,20" lineGap="6" colGap="6" defaultItem="ui://8infi6shhx62g">
+      <relation target="" sidePair="width-width"/>
+      <item title="100" icon="ui://8infi6shhx62m"/>
+      <item title="1" icon="ui://8infi6shhx62m"/>
+      <item title="2" icon="ui://8infi6shhx62m"/>
+      <item title="99" icon="ui://8infi6shhx62m"/>
+      <item title="4" icon="ui://8infi6shhx62m"/>
+      <item title="5" icon="ui://8infi6shhx62m"/>
+      <item icon="ui://8infi6shhx62m"/>
+      <item icon="ui://8infi6shhx62m"/>
+      <item icon="ui://8infi6shhx62m"/>
+      <item icon="ui://8infi6shhx62m"/>
+    </list>
+    <component id="n10_fqu1" name="btnClose" src="sd358i" fileName="components/ButtonClose.xml" xy="570,18">
+      <relation target="" sidePair="left-right"/>
+    </component>
+  </displayList>
+</component>

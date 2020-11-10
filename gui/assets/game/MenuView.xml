@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="640,120">
+  <displayList>
+    <image id="n0_z89z" name="n0" src="hb4d9s" fileName="images/bar3.png" xy="0,0" size="640,120">
+      <relation target="" sidePair="width-width"/>
+    </image>
+    <component id="n2_z89z" name="btnMenu1" src="z89z97" fileName="components/ButtonMenu1.xml" xy="58,5">
+      <relation target="" sidePair="center-center"/>
+    </component>
+    <component id="n3_z89z" name="btnMenu2" src="z89z98" fileName="components/ButtonMenu2.xml" xy="195,5">
+      <relation target="" sidePair="center-center"/>
+    </component>
+    <component id="n4_z89z" name="btnMenu3" src="z89z99" fileName="components/ButtonMenu3.xml" xy="332,5">
+      <relation target="" sidePair="center-center"/>
+    </component>
+    <component id="n5_z89z" name="btnMenu4" src="z89z9a" fileName="components/ButtonMenu4.xml" xy="482,8">
+      <relation target="" sidePair="center-center"/>
+    </component>
+  </displayList>
+</component>

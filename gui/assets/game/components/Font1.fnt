@@ -1,0 +1,20 @@
+info creator=UIBuilder size=36 resizable=true
+common xadvance=26
+char id=48 img=pdqb88 xoffset=0 yoffset=0 xadvance=0
+char id=49 img=pdqb87 xoffset=0 yoffset=0 xadvance=0
+char id=50 img=pdqb86 xoffset=0 yoffset=0 xadvance=0
+char id=51 img=pdqb85 xoffset=0 yoffset=0 xadvance=0
+char id=52 img=pdqb84 xoffset=0 yoffset=0 xadvance=0
+char id=53 img=pdqb83 xoffset=0 yoffset=0 xadvance=0
+char id=54 img=pdqb82 xoffset=0 yoffset=0 xadvance=0
+char id=55 img=pdqb81 xoffset=0 yoffset=0 xadvance=0
+char id=56 img=pdqb80 xoffset=0 yoffset=0 xadvance=0
+char id=57 img=pdqb7z xoffset=0 yoffset=0 xadvance=0
+char id=107 img=pdqb7y xoffset=0 yoffset=0 xadvance=0
+char id=109 img=pdqb7x xoffset=0 yoffset=0 xadvance=0
+char id=97 img=pdqb7w xoffset=0 yoffset=0 xadvance=0
+char id=98 img=pdqb7v xoffset=0 yoffset=0 xadvance=0
+char id=99 img=pdqb7u xoffset=0 yoffset=0 xadvance=0
+char id=100 img=pdqb7t xoffset=0 yoffset=0 xadvance=0
+char id=46 img=pdqb8a xoffset=0 yoffset=0 xadvance=0
+char id=43 img=pdqb8b xoffset=0 yoffset=0 xadvance=0

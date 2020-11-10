@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="400,300">
+  <displayList>
+    <image id="n2_ix2l" name="n2" src="hx629" fileName="images/back.png" xy="0,0" size="400,300"/>
+    <image id="n3_ix2l" name="n3" src="hx628" fileName="images/bar.png" xy="35,73" size="340,119"/>
+    <component id="n4_ix2l" name="btnClose" src="sd358i" fileName="components/ButtonClose.xml" xy="332,15"/>
+    <text id="n5_ix2l" name="title" xy="78,20" size="244,46" fontSize="34" color="#ffffff" align="center" autoSize="none" bold="true" strokeColor="#000000" strokeSize="2" text="提示&#xA;"/>
+    <component id="n1_ix2l" name="btnOk" src="hx62h" fileName="components/ButtonIconGreen.xml" xy="67,205" size="121,68">
+      <Button icon="ui://8infi6shhx62e"/>
+    </component>
+    <text id="n6_ix2l" name="infolab" xy="48,91" size="314,86" fontSize="20" color="#604830" align="center" vAlign="middle" autoSize="none" bold="true" text="伟大勤劳的汪星人们，干起活来，从来不偷懒"/>
+    <component id="n7_ix2l" name="btnCancel" src="ix2l9v" fileName="components/ButtonRed.xml" xy="214,206" size="120,68">
+      <Button title="取消" titleColor="#ffffff" titleFontSize="24"/>
+    </component>
+  </displayList>
+</component>

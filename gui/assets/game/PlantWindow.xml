@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="600,554">
+  <displayList>
+    <image id="n0_sd35" name="n0" src="hx629" fileName="images/back.png" xy="0,0" size="600,554"/>
+    <image id="n1_sd35" name="backbar" src="hx628" fileName="images/bar.png" xy="31,88" size="539,332"/>
+    <component id="n2_sd35" name="btnClose" src="sd358i" fileName="components/ButtonClose.xml" xy="521,21"/>
+    <text id="n3_tun8" name="n3" xy="261,27" size="77,43" fontSize="34" color="#ffffff" align="center" autoSize="none" bold="true" strokeColor="#000000" strokeSize="2" text="星球&#xA;&#xA;"/>
+    <component id="n6_tun8" name="btnGo" src="tun88v" fileName="components/ButtonYellow.xml" xy="214,439" size="172,69">
+      <Button title="前往" titleFontSize="34"/>
+    </component>
+    <text id="n8_tun8" name="namelab" xy="217,107" size="166,33" fontSize="24" color="#ffffff" align="center" autoSize="none" bold="true" text="星球&#xA;&#xA;"/>
+    <text id="n9_tun8" name="infolab" xy="312,157" size="243,233" fontSize="18" color="#604830" vAlign="middle" autoSize="none" bold="true" text="&#xA;&#xA;"/>
+  </displayList>
+</component>
