@@ -134,6 +134,9 @@ GameObject:
   - component: {fileID: 1200325047}
   - component: {fileID: 1200325050}
   - component: {fileID: 1200325051}
+  - component: {fileID: 1200325054}
+  - component: {fileID: 1200325053}
+  - component: {fileID: 1200325052}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -238,6 +241,42 @@ MonoBehaviour:
   defaultSpriteDPI: 96
   constantScaleFactor: 1
   ignoreOrientation: 0
+--- !u!114 &1200325052
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1200325046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 558d746b2f6e02f4fbc6275825dd64c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1200325053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1200325046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2423391a6def234d98f37bac22c1717, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1200325054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1200325046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d91f2df6e2846a43936ef42f6867f4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1499356377
 GameObject:
   m_ObjectHideFlags: 0

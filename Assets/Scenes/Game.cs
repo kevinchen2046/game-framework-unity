@@ -1,20 +1,12 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class Scene1 : MonoBehaviour
+public class Game : MonoBehaviour
 {
     private ArrayList cubes;
     private GameObject cude;
     void Awake(){
 
-        
-        // FairyGUI.UIContentScaler.ScaleMode.ScaleWithScreenSize;
-        //如果在子目录下
-        FairyGUI.UIPackage.AddPackage("game");
-
-        FairyGUI.GComponent view = FairyGUI.UIPackage.CreateObject("game","MainView").asCom;
-        FairyGUI.GRoot.inst.AddChild(view);
-        
         float distance = 18;
         float halfFOV = (Camera.main.fieldOfView * 0.5f) * Mathf.Deg2Rad;
         float aspect = Camera.main.aspect;
@@ -22,9 +14,7 @@ public class Scene1 : MonoBehaviour
         float height = distance * Mathf.Tan(halfFOV);
         float width = height * aspect;
 
-        Debug.Log(width);
-        Debug.Log(height);
-
+        vitamin.Logger.info(width,height);
         int total = 100;
         cubes = new ArrayList();
         while (total>0)
@@ -53,7 +43,7 @@ public class Scene1 : MonoBehaviour
            cude.transform.Rotate(new Vector3(1, 1, 0));
         }
         cude.transform.Rotate(new Vector3(1, 1, 0));
-        Debug.Log(this.cude.transform.rotation);
+        //Debug.Log(this.cude.transform.rotation);
     }
 
 }

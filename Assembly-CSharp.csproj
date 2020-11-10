@@ -11,7 +11,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{B864E7D6-28E1-BDAD-8E61-3C59B3F97664}</ProjectGuid>
+    <ProjectGuid>{C57755B2-DF69-2261-D8EB-AB510E3D71D4}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -219,172 +219,51 @@
     <Compile Include="Assets\FairyGUI\Scripts\Utils\XMLList.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Utils\XMLUtils.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Utils\ZipReader.cs" />
-    <Compile Include="Assets\Scenes\Scene1.cs" />
-    <None Include="Assets\gui\assets\test\components\WindowFrameB.xml" />
-    <None Include="Assets\gui\assets\game\components\ButtonClose.xml" />
-    <None Include="Assets\gui\assets\test\components\Button10.xml" />
-    <None Include="Assets\gui\assets\game\components\ScrollBar_H_grip.xml" />
-    <None Include="Assets\gui\assets\test\components\组件1.xml" />
-    <None Include="Assets\gui\assets\test\components\BagGridSub2.xml" />
-    <None Include="Assets\gui\assets\test\text.xml" />
-    <None Include="Assets\gui\assets\test\popup.xml" />
-    <None Include="Assets\gui\assets\test\progressbar.xml" />
-    <None Include="Assets\gui\assets\test\relation.xml" />
-    <None Include="Assets\gui\assets\test\components\下拉框(1).xml" />
-    <None Include="Assets\gui\assets\game\components\ButtonMenu2.xml" />
-    <None Include="Assets\gui\assets\test\controller.xml" />
-    <None Include="Assets\gui\assets\test\components\win\Component14.xml" />
-    <None Include="Assets\gui\assets\game\package.xml" />
-    <None Include="Assets\gui\assets\game\components\ButtonMenu1.xml" />
-    <None Include="Assets\gui\assets\game\components\ButtonSetting.xml" />
-    <None Include="Assets\gui\assets\game\ToolWindow.xml" />
-    <None Include="Assets\gui\assets\test\drag_drop.xml" />
-    <None Include="Assets\gui\assets\test\components\组件222.xml" />
-    <None Include="Assets\gui\assets\game\components\Font1.fnt" />
-    <None Include="Assets\gui\assets\test\button.xml" />
-    <None Include="Assets\gui\assets\test\components\win\组件3.xml" />
-    <None Include="Assets\gui\assets\game\SettingWindow.xml" />
-    <None Include="Assets\gui\assets\test\components\win\WindowCloseButton.xml" />
-    <None Include="Assets\gui\assets\test\components\win\WindowModalWaiting.xml" />
-    <None Include="Assets\gui\assets\test\grid.xml" />
-    <None Include="Assets\gui\assets\test\components\组件12.xml" />
-    <None Include="Assets\gui\assets\test\components\ComboBoxItem(1).xml" />
-    <None Include="Assets\gui\assets\test\components\Checkbox.xml" />
-    <None Include="Assets\gui\assets\test\components\Button5.xml" />
-    <None Include="Assets\gui\assets\game\components\ScrollBar_H.xml" />
-    <None Include="Assets\gui\assets\test\components\组件5.xml" />
-    <None Include="Assets\gui\assets\test\components\win\GlobalModalWaiting.xml" />
-    <None Include="Assets\gui\assets\test\components\Button8.xml" />
-    <None Include="Assets\gui\assets\game\components\BagGridSub.xml" />
-    <None Include="Assets\gui\assets\test\components\OnOffButton.xml" />
-    <None Include="Assets\gui\assets\test\components\WindowFrame.xml" />
-    <None Include="Assets\gui\assets\test\popupmenu\PopupMenuItem.xml" />
-    <None Include="Assets\gui\assets\test\components\组件2.xml" />
-    <None Include="Assets\gui\assets\game\components\ButtonToggle.xml" />
-    <None Include="Assets\gui\assets\test\image.xml" />
-    <None Include="Assets\gui\assets\test\components\组件6.xml" />
-    <None Include="Assets\gui\assets\test\components\RadioButton.xml" />
+    <Compile Include="Assets\Scenes\Game.cs" />
+    <Compile Include="Assets\Scenes\UI.cs" />
+    <Compile Include="Assets\Vitamin\Vitamin.cs" />
+    <Compile Include="Assets\Vitamin\core\Base.cs" />
+    <Compile Include="Assets\Vitamin\core\Event.cs" />
+    <Compile Include="Assets\Vitamin\core\Injector.cs" />
+    <Compile Include="Assets\Vitamin\core\Logger.cs" />
+    <Compile Include="Assets\Vitamin\core\Net.cs" />
     <None Include="Assets\FairyGUI\Resources\Shaders\FairyGUI-Text.shader" />
-    <None Include="Assets\gui\assets\test\components\指示按钮.xml" />
-    <None Include="Assets\gui\assets\test\components\Component13.xml" />
     <None Include="Assets\FairyGUI\Resources\Shaders\FairyGUI-Image.shader" />
-    <None Include="Assets\gui\assets\test\components\下拉列表(1).xml" />
-    <None Include="Assets\gui\assets\test\components\Button6.xml" />
-    <None Include="Assets\gui\assets\test\components\win\WindowFrame.xml" />
-    <None Include="Assets\gui\assets\test\font\BMFont示例.fnt" />
-    <None Include="Assets\gui\assets\game\MoneyBar.xml" />
-    <None Include="Assets\gui\assets\test\components\WindowCloseButton.xml" />
-    <None Include="Assets\gui\assets\test\components\ComboBoxPopup(1).xml" />
-    <None Include="Assets\gui\assets\test\components\加载进度条.xml" />
-    <None Include="Assets\gui\assets\test\components\Component11.xml" />
-    <None Include="Assets\gui\assets\test\components\win\Button16.xml" />
-    <None Include="Assets\gui\assets\test\depth.xml" />
-    <None Include="Assets\gui\assets\test\scrollbar\GripButton_VT.xml" />
-    <None Include="Assets\gui\assets\test\components\BagGridSub.xml" />
-    <None Include="Assets\gui\assets\test\components\采集进度条2.xml" />
-    <None Include="Assets\gui\assets\test\components\Button3.xml" />
-    <None Include="Assets\gui\assets\test\scrollbar\ScrollBar_VT.xml" />
-    <None Include="Assets\gui\assets\test\slider.xml" />
-    <None Include="Assets\gui\assets\test\components\ProgressBar.xml" />
-    <None Include="Assets\gui\assets\test\components\Button.xml" />
-    <None Include="Assets\gui\assets\test\movieclip.xml" />
-    <None Include="Assets\gui\assets\game\DpsBar.xml" />
-    <None Include="Assets\gui\assets\game\components\ProgressBarYellow.xml" />
-    <None Include="Assets\gui\assets\test\components\Button2.xml" />
-    <None Include="Assets\gui\assets\test\scrollbar\GripButton_HZ.xml" />
-    <None Include="Assets\gui\assets\test\package.xml" />
-    <None Include="Assets\gui\assets\test\components\win\Button4.xml" />
-    <None Include="Assets\gui\assets\test\components\下拉框按钮(1).xml" />
     <None Include="Assets\FairyGUI\Resources\Shaders\AddOn\FairyGUI-BlurFilter.shader" />
-    <None Include="Assets\gui\assets\test\scrollbar\ScrollDownButton.xml" />
-    <None Include="Assets\gui\assets\test\main.xml" />
-    <None Include="Assets\gui\assets\test\list.xml" />
-    <None Include="Assets\gui\assets\test\components\按钮1.xml" />
-    <None Include="Assets\gui\assets\test\scrollbar\ScrollUpButton.xml" />
-    <None Include="Assets\gui\assets\test\components\绿色进度条.xml" />
-    <None Include="Assets\gui\assets\game\components\ButtonRed.xml" />
-    <None Include="Assets\gui\assets\game\components\ButtonTab.xml" />
-    <None Include="Assets\gui\assets\game\components\ButtonSHare.xml" />
-    <None Include="Assets\gui\assets\test\popupmenu\PopupMenu.xml" />
-    <None Include="Assets\gui\assets\test\clip_scroll.xml" />
-    <None Include="Assets\gui\assets\game\components\ButtonIconGreen.xml" />
-    <None Include="Assets\gui\assets\game\components\ButtonMenu4.xml" />
-    <None Include="Assets\gui\assets\test\components\采集进度bar.xml" />
-    <None Include="Assets\gui\assets\game\PlantWindow.xml" />
-    <None Include="Assets\gui\assets\test\components\win\PopTest1.xml" />
-    <None Include="Assets\gui\assets\test\components\采集进度条.xml" />
-    <None Include="Assets\gui\assets\test\component.xml" />
-    <None Include="Assets\gui\assets\test\components\ComboBox(1).xml" />
-    <None Include="Assets\gui\assets\test\components\Button9.xml" />
-    <None Include="Assets\gui\assets\test\components\组件22.xml" />
-    <None Include="Assets\gui\assets\test\components\GridItem.xml" />
-    <None Include="Assets\gui\assets\test\components\关闭按钮.xml" />
-    <None Include="Assets\gui\assets\game\MainView.xml" />
-    <None Include="Assets\gui\assets\game\components\ButtonMenu3.xml" />
-    <None Include="Assets\gui\assets\test\label.xml" />
-    <None Include="Assets\gui\assets\test\graph.xml" />
-    <None Include="Assets\gui\assets\test\windowB.xml" />
-    <None Include="Assets\gui\assets\test\components\SliderArrow_HZ.xml" />
-    <None Include="Assets\gui\assets\test\font\连击数字.fnt" />
-    <None Include="Assets\gui\assets\test\components\下拉列表子按钮(1).xml" />
-    <None Include="Assets\gui\assets\test\scrollbar\ScrollBar_HZ.xml" />
-    <None Include="Assets\gui\assets\game\components\ButtonYellow.xml" />
-    <None Include="Assets\gui\assets\test\components\empty.xml" />
-    <None Include="Assets\gui\assets\test\components\GridItem2.xml" />
-    <None Include="Assets\gui\assets\test\components\Button4.xml" />
-    <None Include="Assets\gui\assets\test\loader.xml" />
-    <None Include="Assets\gui\assets\test\components\采集进度bar2.xml" />
-    <None Include="Assets\gui\assets\test\components\音量设置.xml" />
     <None Include="Assets\FairyGUI\Resources\Shaders\FairyGUI-BMFont.shader" />
-    <None Include="Assets\gui\assets\game\components\ButtonBlue.xml" />
-    <None Include="Assets\gui\assets\game\components\ShopItem.xml" />
-    <None Include="Assets\gui\assets\test\components\SliderArrow_VT.xml" />
-    <None Include="Assets\gui\assets\test\components\Slider_HZ.xml" />
-    <None Include="Assets\gui\assets\test\components\Button7.xml" />
-    <None Include="Assets\gui\assets\test\components\Slider_VT.xml" />
-    <None Include="Assets\gui\assets\game\MenuView.xml" />
     <None Include="Assets\FairyGUI\Extensions\TextMeshPro\Shaders\FairyGUI-TMP.shader" />
-    <None Include="Assets\gui\assets\test\components\Button1.xml" />
-    <None Include="Assets\gui\assets\test\window.xml" />
-    <None Include="Assets\gui\assets\test\combobox.xml" />
-    <None Include="Assets\gui\assets\test\windowA.xml" />
-    <None Include="Assets\gui\assets\game\AlertView.xml" />
-    <None Include="Assets\gui\assets\game\GameInfoBar.xml" />
-    <None Include="Assets\gui\assets\test\components\组件13.xml" />
-    <None Include="Assets\gui\assets\game\components\ButtonEquip.xml" />
-    <None Include="Assets\gui\assets\game\components\ButtonGreen.xml" />
     <Reference Include="Unity.Timeline.Editor">
-      <HintPath>F:/projects/cshape/unity-game-framework/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+      <HintPath>F:/projects/cshape/game-framework-unity/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VSCode.Editor">
-      <HintPath>F:/projects/cshape/unity-game-framework/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+      <HintPath>F:/projects/cshape/game-framework-unity/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>F:/projects/cshape/unity-game-framework/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>F:/projects/cshape/game-framework-unity/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
-      <HintPath>F:/projects/cshape/unity-game-framework/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+      <HintPath>F:/projects/cshape/game-framework-unity/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline">
-      <HintPath>F:/projects/cshape/unity-game-framework/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+      <HintPath>F:/projects/cshape/game-framework-unity/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
     </Reference>
     <Reference Include="Unity.CollabProxy.Editor">
-      <HintPath>F:/projects/cshape/unity-game-framework/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+      <HintPath>F:/projects/cshape/game-framework-unity/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Rider.Editor">
-      <HintPath>F:/projects/cshape/unity-game-framework/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+      <HintPath>F:/projects/cshape/game-framework-unity/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Sprite.Editor">
-      <HintPath>F:/projects/cshape/unity-game-framework/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
+      <HintPath>F:/projects/cshape/game-framework-unity/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Tilemap.Editor">
-      <HintPath>F:/projects/cshape/unity-game-framework/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
+      <HintPath>F:/projects/cshape/game-framework-unity/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>F:/projects/cshape/unity-game-framework/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>F:/projects/cshape/game-framework-unity/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
-      <HintPath>F:/projects/cshape/unity-game-framework/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+      <HintPath>F:/projects/cshape/game-framework-unity/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.3.3f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
