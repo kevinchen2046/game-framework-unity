@@ -212,6 +212,7 @@
      <Compile Include="Assets\Vitamin\core\Injector.cs" />
      <Compile Include="Assets\Vitamin\core\Logger.cs" />
      <Compile Include="Assets\Vitamin\core\Net.cs" />
+     <Compile Include="Assets\Vitamin\core\Util.cs" />
      <Compile Include="Assets\Vitamin\manager\UIManager.cs" />
      <None Include="Assets\FairyGUI\Resources\Shaders\FairyGUI-Text.shader" />
      <None Include="Assets\FairyGUI\Resources\Shaders\FairyGUI-Image.shader" />

@@ -1,7 +1,15 @@
+using UnityEngine;
 public class MainView : vitamin.ViewFairy
 {
-    public MainView(string uiname, string packname, vitamin.UIType uitype):base(uiname,packname,uitype)
-    {
-        
+    public FairyGUI.GComponent info;
+    
+    public FairyGUI.GButton btnSetting;
+    public MainView(string uiname, string packname, vitamin.UIType uitype):base(uiname,packname,uitype){}
+    
+    override public void enter(){
+        Debug.Log(info);
+        btnSetting.onClick.Add(()=>{
+            vitamin.Logger.log("BtnSetting Click!!!");
+        });
     }
 }

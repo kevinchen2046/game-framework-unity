@@ -208,38 +208,38 @@ namespace vitamin
         /// </summary>
         static public void reflex(Type type)
         {
-            Logger.to("[REFLEX]", "#00FFFF", "-----------[" + type.ToString() + "]------------");
+            Logger.display("[REFLEX]", "#00FFFF", "-----------[" + type.ToString() + "]------------");
             Injector.logFileds(type);
             Injector.logPropertys(type);
             Injector.logMethods(type);
-            Logger.to("[REFLEX]", "#00FFFF", "------------------------------------------");
+            Logger.display("[REFLEX]", "#00FFFF", "------------------------------------------");
         }
 
         static private void logFileds(Type classType)
         {
             FieldInfo[] filedInfos = classType.GetFields();
-            Logger.to("[REFLEX]", "#00FFFF", "    " + "字段[" + filedInfos.Length + "]:");
+            Logger.display("[REFLEX]", "#00FFFF", "    " + "字段[" + filedInfos.Length + "]:");
             foreach (FieldInfo info in filedInfos)
             {
-                Logger.to("[REFLEX]", "#FF00FF", "            - " + info.Name);
+                Logger.display("[REFLEX]", "#FF00FF", "            - " + info.Name);
             }
         }
         static private void logMethods(Type classType)
         {
             MethodInfo[] methods = classType.GetMethods();
-            Logger.to("[REFLEX]", "#00FFFF", "    " + "方法[" + methods.Length + "]:");
+            Logger.display("[REFLEX]", "#00FFFF", "    " + "方法[" + methods.Length + "]:");
             foreach (MethodInfo info in methods)
             {
-                Logger.to("[REFLEX]", "#FF00FF", "            - " + info.Name);
+                Logger.display("[REFLEX]", "#FF00FF", "            - " + info.Name);
             }
         }
         static private void logPropertys(Type classType)
         {
             PropertyInfo[] properties = classType.GetProperties();
-            Logger.to("[REFLEX]", "#00FFFF", "    " + "属性[" + properties.Length + "]:");
+            Logger.display("[REFLEX]", "#00FFFF", "    " + "属性[" + properties.Length + "]:");
             foreach (PropertyInfo info in properties)
             {
-                Logger.to("[REFLEX]", "#FF00FF","            - " + info.Name);
+                Logger.display("[REFLEX]", "#FF00FF","            - " + info.Name);
             }
         }
 

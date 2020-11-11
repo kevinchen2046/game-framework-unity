@@ -31,9 +31,7 @@ namespace vitamin
         void Create(){
             skin = FairyGUI.UIPackage.CreateObject(packname, uiname).asCom;
             foreach(FairyGUI.GObject gobject in skin._children){
-                //this.get
-                //this[gobject.name]=gobject;
-                Logger.warn(gobject.name);
+                Util.SetProperty(this,gobject.name,gobject);
             }
         }
 

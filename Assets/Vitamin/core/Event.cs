@@ -108,7 +108,7 @@ namespace vitamin{
         /// </summary>
         /// <param name="eventName">The event name to call methods for</param>
         /// <param name="data">The data to call all the methods with</param>
-        public void emitAsync(string eventName, object data)
+        public void emitAsync(string eventName,params object[] data)
         {
             List<EventHandler> subscribedMethods;
             if (!this._events.TryGetValue(eventName, out subscribedMethods))

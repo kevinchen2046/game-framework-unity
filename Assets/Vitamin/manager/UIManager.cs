@@ -64,6 +64,7 @@ namespace vitamin
                         break;
                 }
             }
+            view.enter();
             return (T)view;
         }
 
