@@ -12,10 +12,10 @@ public class UI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        vitamin.Vitamin.inst.ui.Load("game");
-        vitamin.Vitamin.inst.ui.Register(vitamin.UIType.FIX, typeof(MainView), "MainView");
-        vitamin.Vitamin.inst.ui.Open<MainView>();
-        mainView = vitamin.Vitamin.inst.ui.Get<MainView>();
+        vitamin.Context.inst.ui.Load("game");
+        vitamin.Context.inst.ui.Register(vitamin.UIType.FIX, typeof(MainView), "MainView");
+        vitamin.Context.inst.ui.Open<MainView>();
+        mainView = vitamin.Context.inst.ui.Get<MainView>();
         //FairyGUI.Stage.inst.onStageResized.Add(Resize);
         OnGUI();
     }
