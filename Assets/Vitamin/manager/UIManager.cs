@@ -38,7 +38,8 @@ namespace vitamin
         public void Register(UIType uitype, Type ViewClazz, string uiresname, string respackname = null)
         {
             object[] args = { uiresname, respackname != null ? respackname : DefaultUIPackName, uitype };
-            this.map[ViewClazz] = Activator.CreateInstance(ViewClazz, args) as ViewFairy;
+            
+            this.map[ViewClazz] = (ViewFairy)Injector.createView(ViewClazz, args);
         }
 
         public T Open<T>() where T : ViewFairy

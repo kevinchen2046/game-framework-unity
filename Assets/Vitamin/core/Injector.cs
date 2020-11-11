@@ -2,24 +2,25 @@ using System;
 using System.Reflection;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine;
 namespace vitamin
 {
-    class Config
+    public class Config
     {
         static public bool log = true;
     }
 
-    class Injector
+    public class Injector
     {
         static Dictionary<Type, ViewBase> __views;
-        static Dictionary<Type, ModelBase> __modles;
+        static Dictionary<Type, IModel>  __modles;
         static Dictionary<string, CommandBase> __cmds;
         static Dictionary<Type, object> __instances;
 
         static public void initialize()
         {
             Injector.__views = new Dictionary<Type, ViewBase>();
-            Injector.__modles = new Dictionary<Type, ModelBase>();
+            Injector.__modles = new Dictionary<Type, IModel>();
             Injector.__cmds = new Dictionary<string, CommandBase>();
             Injector.__instances = new Dictionary<Type, object>();
 
@@ -33,9 +34,19 @@ namespace vitamin
             {
                 //获取基类
                 var baseType = type.BaseType;
+                while (true)
+                {   
+                    if(baseType==null) break;
+                    if(baseType==modelBaseType) break;
+                    if(baseType==viewBaseType) break;
+                    if(baseType==cmdBaseType) break;
+                    if(baseType.BaseType==null) break;
+                    baseType=baseType.BaseType;
+                }
+
                 if (baseType == modelBaseType)
                 {
-                    ModelBase model = Activator.CreateInstance(type) as ModelBase;
+                    IModel model = Activator.CreateInstance(type) as IModel;
                     Injector.__modles.Add(type, model);
                 }
                 else if (baseType == viewBaseType)
@@ -158,13 +169,13 @@ namespace vitamin
         /// 获取组件
         /// 通过框架接口获取的组件才会有相关的依赖注入
         /// </summary>
-        static public ViewBase getView(Type viewType)
+        static public ViewBase createView(Type viewType,params object[] args)
         {
             if (Injector.__views.ContainsKey(viewType))
             {
                 if (Injector.__views[viewType] == null)
                 {
-                    ViewBase view = (ViewBase)Activator.CreateInstance(viewType);
+                    ViewBase view = (ViewBase)Activator.CreateInstance(viewType,args);
                     Injector.injectModel(view, viewType);
                     Injector.__views[viewType] = view;
                 }
@@ -265,13 +276,13 @@ namespace vitamin
      * @param clazz 需要单例化的class对象
      */
     [AttributeUsage(AttributeTargets.Field)]
-    class Instance : Attribute
+    public class Instance : Attribute
     {
         public Instance() { }
     }
 
     [AttributeUsage(AttributeTargets.Class)]
-    class CmdRoute : Attribute
+    public class CmdRoute : Attribute
     {
         public string routId;
         public CmdRoute(string routeId)
@@ -281,7 +292,7 @@ namespace vitamin
     }
 
     [AttributeUsage(AttributeTargets.Field)]
-    class Model : Attribute
+    public class Model : Attribute
     {
         public Model() { }
     }

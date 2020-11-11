@@ -9,6 +9,7 @@ namespace vitamin
     
         void Awake()
         {
+            Injector.initialize();
             gameObject.GetComponent<FairyGUI.UIContentScaler>();
             scale = gameObject.GetComponent<FairyGUI.UIContentScaler>();
             // scale.designResolutionX=640;

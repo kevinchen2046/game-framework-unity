@@ -3,7 +3,11 @@ using System.Reflection;
 
 namespace vitamin
 {
-    class ModelBase : EventEmitter
+    public interface IModel {
+        void initialize();
+        void reset();
+    }
+    public class ModelBase : EventEmitter,IModel
     {
         public ModelBase()
         {
@@ -18,7 +22,7 @@ namespace vitamin
     {
         public ViewBase()
         {
-
+            
         }
 
         public virtual void enter()
@@ -38,7 +42,7 @@ namespace vitamin
         }
     }
 
-    class CommandBase : EventEmitter
+    public class CommandBase : EventEmitter
     {
         public Net net;
         public CommandBase()

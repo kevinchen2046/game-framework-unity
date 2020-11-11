@@ -3,14 +3,14 @@ using System;
 namespace vitamin
 {
 
-    interface IMsg
+    public interface IMsg
     {
         int routId { get; }
         int __id__ { get; }
         object data { get; set; }
     }
 
-    class Net
+    public class Net
     {
         public void request(IMsg msg, Action<object> method)
         {

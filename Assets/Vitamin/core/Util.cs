@@ -30,5 +30,9 @@ namespace vitamin
                 case 10: func(args[0], args[1], args[2], args[3], args[4], args[5], args[6], args[7], args[8], args[9]); break;
             }
         }
+
+        public static string GetEnumNameByKey(Type enumType,int key){
+            return Enum.GetName(enumType, key);
+        }
     }
 }
