@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Game1 : Entry
 {
-    // Start is called before the first frame update
     void Start()
     {
 
@@ -13,7 +12,7 @@ public class Game1 : Entry
         bool b = true;
         onUIEvent<vitamin.Event>("SHARE_CLICK", (vitamin.Event e) =>
         {
-            vitamin.Logger.Log(e.ToString());
+            //vitamin.Logger.Log(e.ToString());
             if (b)
             {
                 Tween.Get(cc).Prop(TweenProp.Rotation).To(new Vector3(45,45,0)).Ease(EaseType.CubicOut).Start(.4f);
@@ -30,7 +29,6 @@ public class Game1 : Entry
         vitamin.Logger.Log(e.ToString());
     }
 
-    // Update is called once per frame
     void Update()
     {
 

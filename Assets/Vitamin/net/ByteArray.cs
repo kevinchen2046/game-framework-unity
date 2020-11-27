@@ -44,7 +44,6 @@ ByteArray用法:
             Logger.Log(bytes.ReadByte(),bytes.ReadDouble(),bytes.ReadFloat(),bytes.ReadInt(),bytes.ReadUTF(),bytes.ReadBoolean(),bytes.ReadUTFBytes(len));
 
 todo:
-    BIG_ENDIAN 待实现
     ByteArray 的byte[]写入重构次数可以优化为一次
 */
 namespace vitamin
@@ -283,13 +282,8 @@ namespace vitamin
          */
         public bool ReadBoolean()
         {
-            bool result = false;
-            if (this.Validate(Convert.ToInt32(ByteArraySize.SIZE_OF_BOOLEAN)))
-            {
-                result = BitConverter.ToBoolean(this._bytes, this.Position);
-                this.Position++;
-            }
-            return result;
+            int result = this.ReadByte();
+            return result == 1;
         }
 
         /**
@@ -513,7 +507,8 @@ namespace vitamin
             {
                 if (this.__endian == EndianConst.BIG_ENDIAN)
                 {
-                    result = BitConverter.ToUInt16(this._bytes.Skip(this._position).Take(len).Reverse().ToArray(), 0);
+                    byte[] bytes = this._bytes.Skip(this._position).Take(len).Reverse().ToArray();
+                    result = BitConverter.ToUInt16(bytes, 0);
                 }
                 else
                 {
@@ -567,14 +562,14 @@ namespace vitamin
             {
                 return result;
             }
-            byte[] strbyte = this._bytes.Skip(this._position).Take(length).ToArray();
+            byte[] strbytes = this._bytes.Skip(this._position).Take(length).ToArray();
             if (this.__endian == EndianConst.BIG_ENDIAN)
             {
-                result = this.decodeUTF8(strbyte.Reverse().ToArray());
+                result = this.decodeUTF8(strbytes.Reverse().ToArray());
             }
             else
             {
-                result = this.decodeUTF8(strbyte);
+                result = this.decodeUTF8(strbytes);
             }
             this.Position += length;
             return result;
@@ -589,8 +584,7 @@ namespace vitamin
          */
         public void WriteBoolean(bool value)
         {
-            this.validateBuffer(Convert.ToInt32(ByteArraySize.SIZE_OF_BOOLEAN));
-            this._bytes[this.Position++] = (byte)(value == true ? 1 : 0);
+            this.WriteByte(value ? 1 : 0);
         }
 
         /**
@@ -641,7 +635,6 @@ namespace vitamin
             {
                 this.validateBuffer(writeLength);
                 bytes._bytes.Skip(offset).Take(writeLength).ToArray().CopyTo(this._bytes, this._position);
-                // this._bytes.set(bytes._bytes.subarray(offset, offset + writeLength), this._position);
                 this.Position = this._position + writeLength;
             }
         }
@@ -666,7 +659,6 @@ namespace vitamin
             {
                 bytes.CopyTo(this._bytes, this._position);
             }
-            //this.data.setFloat64(this._position, value, this.__endian == EndianConst.LITTLE_ENDIAN);
             this.Position += bytelen;
         }
 
@@ -723,7 +715,7 @@ namespace vitamin
          * @platform Native
          * @language zh_CN
          */
-        public void WriteShort(int value)
+        public void WriteShort(Int16 value)
         {
             int bytelen = Convert.ToInt32(ByteArraySize.SIZE_OF_INT16);
             this.validateBuffer(bytelen);
@@ -769,7 +761,7 @@ namespace vitamin
          * @platform Native
          * @language zh_CN
          */
-        public void WriteUnsignedShort(uint value)
+        public void WriteUnsignedShort(UInt16 value)
         {
             int bytelen = Convert.ToInt32(ByteArraySize.SIZE_OF_UINT16);
             this.validateBuffer(bytelen);
@@ -798,10 +790,11 @@ namespace vitamin
             int length = utf8bytes.Length;
             int bytelen = Convert.ToInt32(ByteArraySize.SIZE_OF_UINT16) + length;
             this.validateBuffer(bytelen);
-            byte[] bytes = BitConverter.GetBytes(length);
+            byte[] bytes = BitConverter.GetBytes((UInt16)length);
             if (this.__endian == EndianConst.BIG_ENDIAN)
             {
-                bytes.Reverse().ToArray().CopyTo(this._bytes, this._position);
+                bytes = bytes.Reverse().ToArray();
+                bytes.CopyTo(this._bytes, this._position);
             }
             else
             {
@@ -828,6 +821,8 @@ namespace vitamin
         public int WriteUTFBytes(string value)
         {
             byte[] utf8bytes = this.encodeUTF8(value);
+            int length = utf8bytes.Length;
+            this.validateBuffer(length);
             if (this.__endian == EndianConst.BIG_ENDIAN)
             {
                 return this._writeBytes(utf8bytes.Reverse().ToArray(), false);
@@ -846,7 +841,7 @@ namespace vitamin
          */
         override public string ToString()
         {
-            return "[ByteArray] length:" + this.Length + ", bytesAvailable:" + this.BytesAvailable+"\n"+CollectionUtil.Join(this._bytes," ");
+            return "[ByteArray] length:" + this.Length + ", bytesAvailable:" + this.BytesAvailable + "\n" + CollectionUtil.Join(this._bytes, " ");
         }
 
         /**

@@ -12,7 +12,6 @@ public class UI : Entry
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log(Vitamin.inst.manager.ui);
         Vitamin.inst.manager.ui.Load("game");
         Vitamin.inst.manager.ui.Register<MainView>(vitamin.UIType.FIX, "MainView");
         Vitamin.inst.manager.ui.Open<MainView>();

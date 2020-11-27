@@ -93,7 +93,7 @@ namespace vitamin
                 Injector.injectInstance(cmd.Value, cmd.Value.GetType());
                 bool result = Injector.injectModel(cmd.Value, cmd.Value.GetType());
             }
-            Logger.Info("🎇✨🎉✨🛠💊 - Vitamin Start - 💊🛠✨🎉✨🎇");
+            Logger.Info("🎇✨🎉✨🛠💊 --------- Vitamin Start --------- 💊🛠✨🎉✨🎇");
         }
 
         /// <summary>

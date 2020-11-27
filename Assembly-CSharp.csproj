@@ -84,8 +84,8 @@
     <Compile Include="Assets\Vitamin\manager\ResManager.cs" />
     <Compile Include="Assets\Vitamin\manager\UIManager.cs" />
     <Compile Include="Assets\Vitamin\net\ByteArray.cs" />
-    <Compile Include="Assets\Vitamin\net\Connection.cs" />
     <Compile Include="Assets\Vitamin\net\Net.cs" />
+    <Compile Include="Assets\Vitamin\net\NetConnection.cs" />
     <Compile Include="Assets\Vitamin\net\NetRequest.cs" />
     <Compile Include="Assets\Vitamin\thirdp\FairyGUI\Extensions\DragonBones\DragonBonesLoader.cs" />
     <Compile Include="Assets\Vitamin\thirdp\FairyGUI\Extensions\Spine\SpineLoader.cs" />

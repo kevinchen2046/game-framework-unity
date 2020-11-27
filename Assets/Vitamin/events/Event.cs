@@ -120,7 +120,7 @@ namespace vitamin
             List<object> handlers;
             if (!this._events.TryGetValue(type, out handlers))
             {
-                vitamin.Logger.Warn(string.Format("Event [{0}] does not exist in the emitter. Consider calling EventEmitter.On", type));
+                Logger.Warn(string.Format("Event '{0}' does not exist in the emitter.", type));
             }
             else
             {
@@ -140,7 +140,7 @@ namespace vitamin
             List<object> handlers;
             if (!this._events.TryGetValue(e.type, out handlers))
             {
-                Logger.Warn(string.Format("Event [{0}] does not exist in the emitter. Consider calling EventEmitter.On", e.type));
+                Logger.Warn(string.Format("Event '{0}' does not exist in the emitter.", e.type));
             }
             else
             {
@@ -164,7 +164,7 @@ namespace vitamin
             List<object> handlers;
             if (!this._events.TryGetValue(e.type, out handlers))
             {
-                Logger.Warn(string.Format("Event [{0}] does not exist in the emitter. Consider calling EventEmitter.On", e.type));
+                Logger.Warn(string.Format("Event '{0}' does not exist in the emitter.", e.type));
             }
             else
             {
@@ -190,14 +190,14 @@ namespace vitamin
             List<object> handlers;
             if (!this._events.TryGetValue(eventName, out handlers))
             {
-                Logger.Warn(string.Format("Event [{0}] does not exist to have listeners removed.", eventName));
+                Logger.Warn(string.Format("Event '{0}' does not exist to have listeners removed.", eventName));
             }
             else
             {
                 var _event = handlers.Exists(e => (vitamin.EventHandler<T>)e == method);
                 if (_event == false)
                 {
-                    Logger.Warn(string.Format("Func [{0}] does not exist to be removed.", method.Method));
+                    Logger.Warn(string.Format("Func '{0}' does not exist to be removed.", method.Method));
                 }
                 else
                 {
@@ -215,7 +215,7 @@ namespace vitamin
             List<object> handlers;
             if (!this._events.TryGetValue(type, out handlers))
             {
-                Logger.Warn(string.Format("Event [{0}] does not exist to have methods removed.", type));
+                Logger.Warn(string.Format("Event '{0}' does not exist to have methods removed.", type));
             }
             else
             {
@@ -236,7 +236,7 @@ namespace vitamin
             List<object> handlers;
             if (!this._events.TryGetValue(type, out handlers))
             {
-                Logger.Warn(string.Format("Event [{0}] does not exist in the emitter. Consider calling EventEmitter.On", type));
+                Logger.Warn(string.Format("Event '{0}' does not exist in the emitter.", type));
             }
             else
             {
@@ -253,7 +253,7 @@ namespace vitamin
             List<object> handlers;
             if (!this._events.TryGetValue(e.type, out handlers))
             {
-                Logger.Warn(string.Format("Event [{0}] does not exist in the emitter. Consider calling EventEmitter.On", e.type));
+                Logger.Warn(string.Format("Event '{0}' does not exist in the emitter.", e.type));
             }
             else
             {

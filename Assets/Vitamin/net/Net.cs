@@ -19,12 +19,12 @@ namespace vitamin
     public delegate void MessageHandler(Net net);
     public class Net
     {
-        Connection connection;
+        NetConnection connection;
         Hashtable requests;
         uint reqId;
         public Net()
         {
-            connection = new Connection();
+            connection = new NetConnection();
             connection.OnData(dataHandler);
             requests=new Hashtable();
             reqId=0;
