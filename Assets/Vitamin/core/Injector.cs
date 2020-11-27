@@ -58,7 +58,7 @@ namespace vitamin
                     CmdRoute des = (CmdRoute)type.GetCustomAttribute(typeof(CmdRoute));
                     if (des == null)
                     {
-                        Logger.error(baseType.ToString() + "没有添加描述信息!");
+                        Logger.Error(baseType.ToString() + "没有添加描述信息!");
                     }
                     else
                     {
@@ -93,7 +93,7 @@ namespace vitamin
                 Injector.injectInstance(cmd.Value, cmd.Value.GetType());
                 bool result = Injector.injectModel(cmd.Value, cmd.Value.GetType());
             }
-            Logger.info("🎇✨🎉✨🛠💊 - Vitamin Start - 💊🛠✨🎉✨🎇");
+            Logger.Info("🎇✨🎉✨🛠💊 - Vitamin Start - 💊🛠✨🎉✨🎇");
         }
 
         /// <summary>
@@ -169,8 +169,9 @@ namespace vitamin
         /// 获取组件
         /// 通过框架接口获取的组件才会有相关的依赖注入
         /// </summary>
-        static public ViewBase createView(Type viewType,params object[] args)
+        static public T createView<T>(params object[] args)where T:ViewBase
         {
+            Type viewType = typeof(T);
             if (Injector.__views.ContainsKey(viewType))
             {
                 if (Injector.__views[viewType] == null)
@@ -180,7 +181,7 @@ namespace vitamin
                     Injector.__views[viewType] = view;
                 }
             }
-            return Injector.__views[viewType];
+            return Injector.__views[viewType] as T;
         }
 
         /// <summary>
@@ -198,7 +199,7 @@ namespace vitamin
                 }
                 else
                 {
-                    Logger.error("无法执行命令:" + cmdRoute);
+                    Logger.Error("无法执行命令:" + cmdRoute);
                 }
             }
         }
@@ -208,7 +209,7 @@ namespace vitamin
         /// </summary>
         static public void reflex(object instance)
         {
-            Logger.log(instance.ToString());
+            Logger.Log(instance.ToString());
             Injector.logFileds(instance.GetType());
             Injector.logPropertys(instance.GetType());
             Injector.logMethods(instance.GetType());
@@ -254,21 +255,6 @@ namespace vitamin
             }
         }
 
-        static public void delay(int time, Action<object, System.Timers.ElapsedEventArgs> method)
-        {
-            System.Timers.Timer t = new System.Timers.Timer(time);//实例化Timer类，设置间隔时间为10000毫秒；
-            t.Elapsed += new System.Timers.ElapsedEventHandler(method);//到达时间的时候执行事件；
-            t.AutoReset = false;//设置是执行一次（false）还是一直执行(true)；
-            t.Enabled = true;//是否执行System.Timers.Timer.Elapsed事件；
-        }
-
-        static public void loop(int time, Action<object, System.Timers.ElapsedEventArgs> method)
-        {
-            System.Timers.Timer t = new System.Timers.Timer(time);//实例化Timer类，设置间隔时间为10000毫秒；
-            t.Elapsed += new System.Timers.ElapsedEventHandler(method);//到达时间的时候执行事件；
-            t.AutoReset = true;//设置是执行一次（false）还是一直执行(true)；
-            t.Enabled = true;//是否执行System.Timers.Timer.Elapsed事件；
-        }
     }
 
     /**

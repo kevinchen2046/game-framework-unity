@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class Game : MonoBehaviour
+public class Game : Entry
 {
     private ArrayList cubes;
     private GameObject cude;
@@ -14,7 +14,7 @@ public class Game : MonoBehaviour
         float height = distance * Mathf.Tan(halfFOV);
         float width = height * aspect;
 
-        vitamin.Logger.info(width,height);
+        vitamin.Logger.Info(width,height);
         int total = 100;
         cubes = new ArrayList();
         while (total>0)

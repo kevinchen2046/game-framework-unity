@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class UI : MonoBehaviour
+public class UI : Entry
 {
     MainView mainView;
     void Awake()
@@ -12,10 +12,11 @@ public class UI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        vitamin.Context.inst.ui.Load("game");
-        vitamin.Context.inst.ui.Register(vitamin.UIType.FIX, typeof(MainView), "MainView");
-        vitamin.Context.inst.ui.Open<MainView>();
-        mainView = vitamin.Context.inst.ui.Get<MainView>();
+        Debug.Log(Vitamin.inst.manager.ui);
+        Vitamin.inst.manager.ui.Load("game");
+        Vitamin.inst.manager.ui.Register<MainView>(vitamin.UIType.FIX, "MainView");
+        Vitamin.inst.manager.ui.Open<MainView>();
+        mainView = Vitamin.inst.manager.ui.Get<MainView>();
         //FairyGUI.Stage.inst.onStageResized.Add(Resize);
         OnGUI();
     }

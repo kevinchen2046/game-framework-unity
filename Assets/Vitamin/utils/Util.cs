@@ -34,5 +34,18 @@ namespace vitamin
         public static string GetEnumNameByKey(Type enumType,int key){
             return Enum.GetName(enumType, key);
         }
+
+        public static bool InstaneOf<K>(object target)
+        {
+            Type t = target.GetType();
+            Type k = typeof(K);
+            if (t == k) return true;
+            while (t.BaseType != null)
+            {
+                if (t.BaseType == k) return true;
+                t = t.BaseType;
+            }
+            return false;
+        }
     }
 }

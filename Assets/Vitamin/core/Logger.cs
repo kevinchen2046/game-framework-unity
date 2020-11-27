@@ -3,31 +3,48 @@ namespace vitamin
 {
     enum LoggerType
     {
-        LOG, INFO, WARN, DEBUG, ERROR
+        LOG, INFO, WARN, DEBUG, ERROR,LIST
     }
     class Logger
     {
-        static public void log(params object[] args)
+        static public void List(object[] args)
+        {
+            Logger.to(LoggerType.LIST, ConsoleColor.White, vitamin.CollectionUtil.Join(args, ","));
+        }
+        static public void List(int[] args)
+        {
+            Logger.to(LoggerType.LIST, ConsoleColor.White, vitamin.CollectionUtil.Join(args, ","));
+        }
+        static public void List(string[] args)
+        {
+            Logger.to(LoggerType.LIST, ConsoleColor.White, vitamin.CollectionUtil.Join(args, ","));
+        }
+        static public void List(float[] args)
+        {
+            Logger.to(LoggerType.LIST, ConsoleColor.White, vitamin.CollectionUtil.Join(args, ","));
+        }
+
+        static public void Log(params object[] args)
         {
             Logger.to(LoggerType.LOG, args);
         }
 
-        static public void info(params object[] args)
+        static public void Info(params object[] args)
         {
             Logger.to(LoggerType.INFO, args);
         }
 
-        static public void warn(params object[] args)
+        static public void Warn(params object[] args)
         {
             Logger.to(LoggerType.WARN, args);
         }
 
-        static public void debug(params object[] args)
+        static public void Debug(params object[] args)
         {
             Logger.to(LoggerType.DEBUG, args);
         }
 
-        static public void error(params object[] args)
+        static public void Error(params object[] args)
         {
             Logger.to(LoggerType.ERROR, args);
         }

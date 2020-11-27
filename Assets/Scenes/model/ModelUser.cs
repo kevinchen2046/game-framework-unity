@@ -7,6 +7,6 @@ public class ModelUser : vitamin.ModelBase
     }
 
     override public void initialize(){
-        vitamin.Logger.log("ModelUser initialize!");
+        vitamin.Logger.Log("ModelUser initialize!");
     }
 }

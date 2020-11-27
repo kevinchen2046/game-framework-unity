@@ -10,6 +10,6 @@ public class CmdRename : vitamin.CommandBase
     public override void exec(params object[] args)
     {
         user.name=args[0].ToString();
-        vitamin.Logger.debug("CmdRename:" + this.user.name);
+        vitamin.Logger.Debug("CmdRename:" + this.user.name);
     }
 }
