@@ -254,8 +254,6 @@ namespace vitamin
                     case TweenProp.Rotation:
                     case TweenProp.RotationX:
                     case TweenProp.RotationY:
-                        Debug.Log("Tween Rotation");
-                        Debug.Log(hash);
                         iTween.RotateTo((GameObject)target, hash);
                         break;
                     case TweenProp.Alpha:

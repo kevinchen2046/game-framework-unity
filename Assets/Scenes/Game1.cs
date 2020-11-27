@@ -7,14 +7,11 @@ public class Game1 : Entry
     // Start is called before the first frame update
     void Start()
     {
-        EventEmitter emitter = new EventEmitter();
-        emitter.on<vitamin.Event>("DATA", eventhandler);
-        emitter.emit<vitamin.Event>("DATA", 11);
 
         GameObject cc = GameObject.CreatePrimitive(PrimitiveType.Cube);
 
         bool b = true;
-        onUIEvent<vitamin.Event>("DATA", (vitamin.Event e) =>
+        onUIEvent<vitamin.Event>("SHARE_CLICK", (vitamin.Event e) =>
         {
             vitamin.Logger.Log(e.ToString());
             if (b)

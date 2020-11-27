@@ -14,9 +14,10 @@ public class MainView : vitamin.ViewFairy
         //Debug.Log(info);
         btnSetting.onClick.Add(() => {
             vitamin.Logger.Log("BtnSetting Click!!!");
+            emitEvent<vitamin.Event>("SETTING_CLICK", "Hello!");
         });
         btnShare.onClick.Add(() => {
-            emitEvent<vitamin.Event>("DATA", "Hello!");
+            emitEvent<vitamin.Event>("SHARE_CLICK", "Hello!");
         });
         //Debug.Log(user);
         info.GetChild("btnClose").onClick.Add(() => {

@@ -55,11 +55,11 @@ namespace vitamin
             string color = "";
             switch (type)
             {
-                case LoggerType.LOG: color = "#0"; break;
-                case LoggerType.INFO: color = "#55FF55"; break;
-                case LoggerType.WARN: color = "#FFFF55"; break;
-                case LoggerType.DEBUG: color = "#55CCFF"; break;
-                case LoggerType.ERROR: color = "#FF5555"; break;
+                case LoggerType.LOG: color = "#33383c"; break;
+                case LoggerType.INFO: color = "#4b8744"; break;
+                case LoggerType.WARN: color = "#947e25"; break;
+                case LoggerType.DEBUG: color = "#073763"; break;
+                case LoggerType.ERROR: color = "#942525"; break;
             }
             string tag = "["+Enum.GetName(typeof(LoggerType), type)+"]";
             Logger.display(tag,color,args);
@@ -91,7 +91,7 @@ namespace vitamin
             // for(int i=0;i<args.Length;i++){
             //     formatstring+="{"+i+"}";
             // }
-            string formatstring = "<color=" + color + ">{0}</color> <b><color=" + color + ">{1}</color></b>";
+            string formatstring = "<color=" + color + ">{0}</color><color=" + color + ">  {1}</color>";
             UnityEngine.Debug.Log(string.Format(formatstring,tag,content));
             // switch(args.Length){
             //     case 1:UnityEngine.Debug.Log(string.Format(formatstring,args[0]));break;
