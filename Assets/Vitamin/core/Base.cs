@@ -18,7 +18,7 @@ namespace vitamin
         public virtual void reset() { }
     }
 
-    public abstract class ViewBase : EventEmitter
+    public abstract class ViewBase
     {
         public ViewBase()
         {
@@ -42,7 +42,7 @@ namespace vitamin
         }
     }
 
-    public class CommandBase : EventEmitter
+    public class CommandBase
     {
         public Net net;
         public CommandBase()

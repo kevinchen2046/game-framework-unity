@@ -50,6 +50,11 @@ public class Vitamin : MonoBehaviour
 
     }
 
+    private void OnGUI()
+    {
+        _manager.ui.Resize();
+    }
+
     public static Vitamin inst
     {
         get{

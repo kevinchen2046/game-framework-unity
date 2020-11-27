@@ -1,6 +1,6 @@
 using UnityEngine;
 using vitamin;
-public class MainView : vitamin.ViewFairy
+public class MainView : ViewFairy
 {
     [vitamin.Model]
     public ModelUser user;
@@ -9,6 +9,7 @@ public class MainView : vitamin.ViewFairy
     public FairyGUI.GButton btnTool;
     public FairyGUI.GButton btnSetting;
     public FairyGUI.GButton btnShare;
+
     public MainView(string uiname, string packname, vitamin.UIType uitype):base(uiname,packname,uitype){}
     
     override public void enter(){
@@ -24,7 +25,7 @@ public class MainView : vitamin.ViewFairy
             emitEvent<vitamin.Event>("SHARE_CLICK", "Hello!");
             
         });
-        float infoY = info.y;
+
         info.GetChild("btnClose").onClick.Add(() => {
             vitamin.Logger.Debug(info.y, this.height);
             if(info.y< this.height - 200)
@@ -33,11 +34,15 @@ public class MainView : vitamin.ViewFairy
             }
             else
             {
-                Tween.Get(info).Prop(TweenProp.Y).To(infoY).Ease(EaseType.CubicOut).Start(0.8f);
+                Tween.Get(info).Prop(TweenProp.Y).To(this.height - info.height+10).Ease(EaseType.CubicOut).Start(0.8f);
             }
         });
     }
-
+    override internal void Resize(float width, float height)
+    {
+        this.width = width;
+        this.height = height;
+    }
     private void onupdate(Vector3 v3)
     {
         if (v3 != null)

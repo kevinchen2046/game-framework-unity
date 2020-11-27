@@ -13,6 +13,7 @@ namespace vitamin
         private FairyGUI.GComponent AlertContainer;
         private FairyGUI.GComponent TipContainer;
         private Dictionary<Type, ViewFairy> map;
+        private List<ViewFairy> openlist;
         private string DefaultUIPackName;
 
         private EventEmitter uiEmitter;
@@ -20,6 +21,7 @@ namespace vitamin
         public UIManager()
         {
             this.map = new Dictionary<Type, ViewFairy>();
+            this.openlist = new List<ViewFairy>();
             this.FixContainer = new FairyGUI.GComponent();
             FairyGUI.GRoot.inst.AddChild(this.FixContainer);
             this.DialogContainer = new FairyGUI.GComponent();
@@ -60,26 +62,49 @@ namespace vitamin
             Type ViewClazz = typeof(T);
             //T FindObjectOfType<T>() where T : Object;
             ViewFairy view = map[ViewClazz];
-            if (view != null)
+            if (view == null) return null;
+            if (this.openlist.IndexOf(view) >= 0) return null;
+            switch (view.uitype)
             {
-                switch (view.uitype)
-                {
-                    case UIType.FIX:
-                        view.Add(this.FixContainer);
-                        break;
-                    case UIType.DIALOG:
-                        view.Add(this.DialogContainer);
-                        break;
-                    case UIType.FLOAT:
-                        view.Add(this.FloatContainer);
-                        break;
-                    case UIType.ALERT:
-                        view.Add(this.AlertContainer);
-                        break;
-                }
+                case UIType.FIX:
+                    view.Add(this.FixContainer);
+                    break;
+                case UIType.DIALOG:
+                    view.Add(this.DialogContainer);
+                    break;
+                case UIType.FLOAT:
+                    view.Add(this.FloatContainer);
+                    break;
+                case UIType.ALERT:
+                    view.Add(this.AlertContainer);
+                    break;
             }
+            this.openlist.Add(view);
             view.enter();
+            view.Resize(FairyGUI.GRoot.inst.width, FairyGUI.GRoot.inst.height);
             return (T)view;
+        }
+
+        public void Close<T>() where T : ViewFairy
+        {
+            Type ViewClazz = typeof(T);
+            ViewFairy view = map[ViewClazz];
+            if (view == null) return;
+            int index = this.openlist.IndexOf(view);
+            if (index >= 0)
+            {
+                this.openlist.RemoveAt(index);
+                view.Remove();
+                view.exit();
+            }
+        }
+
+        internal void Resize()
+        {
+            foreach(ViewFairy view in this.openlist)
+            {
+                view.Resize(FairyGUI.GRoot.inst.width, FairyGUI.GRoot.inst.height);
+            }
         }
 
         public T Get<T>() where T : ViewFairy

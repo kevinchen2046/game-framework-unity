@@ -37,6 +37,11 @@ namespace vitamin
             }
         }
 
+        virtual internal void Resize(float width, float height)
+        {
+
+        }
+
         public void Add(FairyGUI.GComponent container){
             if(this.skin==null){
                 this.Create();
