@@ -1,0 +1,173 @@
+####UI.cs
+using vitamin;
+using game.view;
+using UnityEngine;
+
+namespace game { 
+    public class UI : Context
+    {
+        [Tooltip("多个资源请用,号隔开")]
+        public string respack= "game";
+
+        MainView mainView;
+        override internal void initialize()
+        {
+            Vitamin.inst.manager.ui.Load(respack);
+            Vitamin.inst.manager.ui.Register<MainView>(vitamin.UIType.FIX, "MainView");
+     
+            Vitamin.inst.manager.ui.Open<MainView>();
+            mainView = Vitamin.inst.manager.ui.Get<MainView>();
+        }
+    }
+}
+####Game.cs
+
+using UnityEngine;
+using vitamin;
+
+namespace game
+{
+    public class Game : Context
+    {
+        override internal void initialize()
+        {
+
+            GameObject cc = GameObject.CreatePrimitive(PrimitiveType.Cube);
+            cc.transform.parent = this.GetComponent<Transform>();
+            bool b = true;
+            onEvent<vitamin.Event>("SHARE_CLICK", (vitamin.Event e) =>
+            {
+                //vitamin.Logger.Log(e.ToString());
+                if (b)
+                {
+                    Tween.Get(cc).Prop(TweenProp.Rotation).To(new Vector3(45, 45, 0)).Ease(EaseType.CubicOut).Start(.4f);
+                }
+                else
+                {
+                    Tween.Get(cc).Prop(TweenProp.Rotation).To(Vector3.zero).Ease(EaseType.CubicOut).Start(.4f);
+                }
+                b = !b;
+            });
+            Debug.DrawLine(Vector3.zero, Vector3.one);
+            Debug.Log("Test!");
+        }
+
+        void eventhandler(vitamin.Event e)
+        {
+            vitamin.Logger.Log(e.ToString());
+        }
+
+        void Update()
+        {
+
+        }
+    }
+}
+
+####command/CmdRename.cs
+using game.model;
+namespace game.cmd
+{
+    // 这是一个 Commnad的实例
+    // 这里需要定义一个Command的路由 用于触发Command
+    [vitamin.CmdRoute("user.rename")]
+    public class CmdRename : vitamin.CommandBase
+    {
+        //在Command可以注入任意的Model
+        [vitamin.Model]
+        public ModelUser user;
+        //Command被执行
+        public override void exec(params object[] args)
+        {
+            user.name = args[0].ToString();
+            vitamin.Logger.Debug("Command Exec: ModelUser > " + this.user.name);
+        }
+    }
+}
+####model/ModelUser.cs
+namespace game.model
+{
+    using UnityEngine;
+    public class ModelUser : vitamin.ModelBase
+    {
+        public string name = "Kevin.Chen";
+        public ModelUser()
+        {
+
+        }
+
+        override public void initialize()
+        {
+            vitamin.Logger.Log("ModelUser initialize!");
+        }
+    }
+}
+####view/MainView.cs
+using UnityEngine;
+using vitamin;
+using game.model;
+namespace game.view
+{
+    public class MainView : ViewFairy
+    {
+        [Model]
+        public ModelUser user;
+
+        public FairyGUI.GComponent info;
+        public FairyGUI.GButton btnTool;
+        public FairyGUI.GButton btnSetting;
+        public FairyGUI.GButton btnShare;
+
+        public MainView(string uiname, string packname, vitamin.UIType uitype) : base(uiname, packname, uitype) { }
+
+        override public void enter()
+        {
+            btnTool.onClick.Add(() =>
+            {
+                vitamin.Logger.Log(this.user.name);
+                emitEvent<ButtonEvent>(ButtonEvent.TOOL, "Hello!");
+            });
+            btnSetting.onClick.Add(() =>
+            {
+                execCommand("user.rename", "KEVIN.CHEN");
+                emitEvent<vitamin.Event>("SETTING_CLICK", "Hello!");
+            });
+            btnShare.onClick.Add(() =>
+            {
+                emitEvent<vitamin.Event>("SHARE_CLICK", "Hello!");
+
+            });
+
+            info.GetChild("btnClose").onClick.Add(() =>
+            {
+                vitamin.Logger.Debug(info.y, this.height);
+                if (info.y < this.height - 200)
+                {
+                    Tween.Get(info).Prop(TweenProp.Y).To(this.height - 100).Ease(EaseType.CircInOut).Start(0.5f);
+                }
+                else
+                {
+                    Tween.Get(info).Prop(TweenProp.Y).To(this.height - info.height + 10).Ease(EaseType.CubicOut).Start(0.8f);
+                }
+            });
+        }
+        override internal void Resize(float width, float height)
+        {
+            this.width = width;
+            this.height = height;
+        }
+        private void onupdate(Vector3 v3)
+        {
+            if (v3 != null)
+            {
+                Debug.Log(v3.x.ToString());
+            }
+        }
+    }
+
+    public class ButtonEvent : vitamin.Event
+    {
+        public static string TOOL = "TOOL";
+        public ButtonEvent(string type, params object[] args) : base(type, args) { }
+    }
+}

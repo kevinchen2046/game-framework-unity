@@ -1,20 +1,21 @@
-using System.Collections;
+using vitamin;
+using game.view;
 using UnityEngine;
 
-public class UI : Entry
-{
-    MainView mainView;
-    void Awake()
+namespace game { 
+    public class UI : Context
     {
+        [Tooltip("多个资源请用,号隔开")]
+        public string respack= "game";
 
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        Vitamin.inst.manager.ui.Load("game");
-        Vitamin.inst.manager.ui.Register<MainView>(vitamin.UIType.FIX, "MainView");
-        Vitamin.inst.manager.ui.Open<MainView>();
-        mainView = Vitamin.inst.manager.ui.Get<MainView>();
+        MainView mainView;
+        override internal void initialize()
+        {
+            Vitamin.inst.manager.ui.Load(respack);
+            Vitamin.inst.manager.ui.Register<MainView>(vitamin.UIType.FIX, "MainView");
+     
+            Vitamin.inst.manager.ui.Open<MainView>();
+            mainView = Vitamin.inst.manager.ui.Get<MainView>();
+        }
     }
 }

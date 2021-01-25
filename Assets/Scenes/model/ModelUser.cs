@@ -1,12 +1,17 @@
-using UnityEngine;
-public class ModelUser : vitamin.ModelBase
+namespace game.model
 {
-    public string name = "Kevin.Chen";
-    public ModelUser(){
-        
-    }
+    using UnityEngine;
+    public class ModelUser : vitamin.ModelBase
+    {
+        public string name = "Kevin.Chen";
+        public ModelUser()
+        {
 
-    override public void initialize(){
-        vitamin.Logger.Log("ModelUser initialize!");
+        }
+
+        override public void initialize()
+        {
+            vitamin.Logger.Log("ModelUser initialize!");
+        }
     }
 }

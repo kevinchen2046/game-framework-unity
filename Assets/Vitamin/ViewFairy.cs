@@ -6,8 +6,7 @@ namespace vitamin
         public UIType uitype;
         private string uiname;
         private string packname;
-        internal EventEmitter _uiEmitter;
-        internal EventEmitter _gameEmitter;
+        internal EventEmitter _emitter;
         public ViewFairy(string uiname, string packname,UIType uitype)
         {
             this.uiname=uiname;
@@ -57,19 +56,14 @@ namespace vitamin
             }
         }
 
-        protected void onUIEvent<T>(string type, EventHandler<T> handler) where T : vitamin.Event
+        protected void onEvent<T>(string type, EventHandler<T> handler) where T : vitamin.Event
         {
-            _uiEmitter.on<T>(type, handler);
-        }
-
-        protected void onGameEvent<T>(string type, EventHandler<T> handler) where T : vitamin.Event
-        {
-            _gameEmitter.on<T>(type, handler);
+            _emitter.on<T>(type, handler);
         }
 
         protected void emitEvent<T>(string type, params object[] data) where T : vitamin.Event
         {
-            _uiEmitter.emit<T>(type, data);
+            _emitter.emit<T>(type, data);
         }
     }
 }

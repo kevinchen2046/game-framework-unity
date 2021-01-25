@@ -16,8 +16,8 @@ namespace vitamin
         private List<ViewFairy> openlist;
         private string DefaultUIPackName;
 
-        private EventEmitter uiEmitter;
-        private EventEmitter gameEmitter;
+        internal EventEmitter _emitter;
+
         public UIManager()
         {
             this.map = new Dictionary<Type, ViewFairy>();
@@ -34,10 +34,9 @@ namespace vitamin
             FairyGUI.GRoot.inst.AddChild(this.TipContainer);
         }
             
-        public void initialize(EventEmitter uiEmitter,EventEmitter gameEmitter)
+        public void initialize()
         {
-            this.uiEmitter = uiEmitter;
-            this.gameEmitter = gameEmitter;
+
         }
 
         public void Load(string path)
@@ -52,8 +51,7 @@ namespace vitamin
             object[] args = { uiresname, respackname != null ? respackname : DefaultUIPackName, uitype };
             
             T view = Injector.createView<T>(args);
-            view._uiEmitter = uiEmitter;
-            view._gameEmitter = gameEmitter;
+            view._emitter = _emitter;
             this.map[viewType] = view;
         }
 

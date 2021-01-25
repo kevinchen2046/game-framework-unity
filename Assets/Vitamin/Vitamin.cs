@@ -1,81 +1,82 @@
 using System;
-using System.Collections;
 using UnityEngine;
-using vitamin;
 using FairyGUI;
-public class Vitamin : MonoBehaviour
+namespace vitamin
 {
-    private UIContentScaler _scaleconfig;
-
-    private Mananger _manager;
-    public Mananger manager { get { return this._manager; } }
-    private Entry[] _entrys;
-
-    void Awake()
+    public class Vitamin : MonoBehaviour
     {
-        Injector.initialize();
-        _scaleconfig = gameObject.GetComponent<UIContentScaler>();
+        public static Vitamin inst { get { return FindObjectOfType<Vitamin>(); } }
 
-        EventEmitter uiEmitter = new EventEmitter();
-        EventEmitter gameEmitter = new EventEmitter();
-        _manager = ScriptableObject.CreateInstance<Mananger>();
-        _manager.initialize();
+        [Tooltip("UIåŸºæœ¬è®¾ç½®")]
+        public UIContentScaler scaler;
 
-        _manager.ui.initialize(uiEmitter, gameEmitter);
-        // scale.designResolutionX=640;
-        // scale.designResolutionY=1136;
-        // scale.scaleMode=FairyGUI.UIContentScaler.ScaleMode.ScaleWithScreenSize;
-        // scale.screenMatchMode=FairyGUI.UIContentScaler.ScreenMatchMode.MatchWidthOrHeight;
-        _entrys = gameObject.GetComponents<Entry>();
-        if (_entrys.Length>0)
+        [Header("ä¸Šä¸‹æ–‡è®¾ç½®")]
+        [Tooltip("ç»§æ‰¿è‡ªContextçš„UIå…¥å£")]
+        public Context ui;
+        [Tooltip("ç»§æ‰¿è‡ªContextçš„ç©æ³•å…¥å£")]
+        public Context game;
+
+
+        private Mananger __manager;
+        public Mananger manager { get { return __manager; } }
+       
+        internal EventEmitter __center_emitter;
+        void Awake()
         {
-            foreach(Entry entry in _entrys)
+            Injector.initialize();
+
+            __center_emitter = new EventEmitter();
+            if (ui != null) ui.__emitter = __center_emitter;
+            else Logger.Warn("UI Entry Not Found!");
+            if (game != null) game.__emitter = __center_emitter;
+            else Logger.Warn("Game Entry Not Found!");
+            if(scaler==null)
             {
-                entry.manager = _manager;
-                entry.uiEmitter = uiEmitter;
-                entry.gameEmitter = gameEmitter;
+                Logger.Warn("UIContentScalar Not Found!");
+            }
+            __manager = ScriptableObject.CreateInstance<Mananger>();
+            __manager.initialize();
+            __manager.ui._emitter = __center_emitter;
+           
+            if (game != null)
+            {
+                game.__manager = __manager;
+                game.initialize();
+            }
+            if (ui != null)
+            {
+                ui.__manager = __manager;
+                ui.initialize();
             }
         }
-    }
 
-    // Start is called before the first frame update
-    void Start()
-    {
+        // Start is called before the first frame update
+        void Start()
+        {
 
-    }
+        }
 
-    // Update is called once per frame
-    void Update()
-    {
+        // Update is called once per frame
+        void Update()
+        {
 
-    }
+        }
 
-    private void OnGUI()
-    {
-        _manager.ui.Resize();
-    }
+        private void OnGUI()
+        {
+            __manager.ui.Resize();
+        }
 
-    public static Vitamin inst
-    {
-        get{
-            return FindObjectOfType<Vitamin>();
+
+        protected void onUIEvent<T>(string type, EventHandler<T> handler) where T : vitamin.Event
+        {
+            __center_emitter.on<T>(type, handler);
+        }
+
+        
+        protected void emitEvent<T>(string type, params object[] data) where T : vitamin.Event
+        {
+            __center_emitter.emit<T>(type, data);
         }
     }
-    
-    static public void Delay(int time, Action<object, System.Timers.ElapsedEventArgs> method)
-    {
-        System.Timers.Timer t = new System.Timers.Timer(time);//ÊµÀı»¯TimerÀà£¬ÉèÖÃ¼ä¸ôÊ±¼äÎª10000ºÁÃë£»
-        t.Elapsed += new System.Timers.ElapsedEventHandler(method);//µ½´ïÊ±¼äµÄÊ±ºòÖ´ĞĞÊÂ¼ş£»
-        t.AutoReset = false;//ÉèÖÃÊÇÖ´ĞĞÒ»´Î£¨false£©»¹ÊÇÒ»Ö±Ö´ĞĞ(true)£»
-        t.Enabled = true;//ÊÇ·ñÖ´ĞĞSystem.Timers.Timer.ElapsedÊÂ¼ş£»
-    }
-
-    static public void Loop(int time, Action<object, System.Timers.ElapsedEventArgs> method)
-    {
-        System.Timers.Timer t = new System.Timers.Timer(time);//ÊµÀı»¯TimerÀà£¬ÉèÖÃ¼ä¸ôÊ±¼äÎª10000ºÁÃë£»
-        t.Elapsed += new System.Timers.ElapsedEventHandler(method);//µ½´ïÊ±¼äµÄÊ±ºòÖ´ĞĞÊÂ¼ş£»
-        t.AutoReset = true;//ÉèÖÃÊÇÖ´ĞĞÒ»´Î£¨false£©»¹ÊÇÒ»Ö±Ö´ĞĞ(true)£»
-        t.Enabled = true;//ÊÇ·ñÖ´ĞĞSystem.Timers.Timer.ElapsedÊÂ¼ş£»
-    }
 }
-
