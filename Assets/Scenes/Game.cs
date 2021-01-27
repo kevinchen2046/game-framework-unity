@@ -8,11 +8,11 @@ namespace game
     {
         override internal void initialize()
         {
-
             GameObject cc = GameObject.CreatePrimitive(PrimitiveType.Cube);
             cc.transform.parent = this.GetComponent<Transform>();
             bool b = true;
-            onEvent<vitamin.Event>("SHARE_CLICK", (vitamin.Event e) =>
+            //监听框架事件
+            this.onEvent<vitamin.Event>("SHARE_CLICK", (vitamin.Event e) =>
             {
                 //vitamin.Logger.Log(e.ToString());
                 if (b)
@@ -25,8 +25,6 @@ namespace game
                 }
                 b = !b;
             });
-            Debug.DrawLine(Vector3.zero, Vector3.one);
-            Debug.Log("Test!");
         }
 
         void eventhandler(vitamin.Event e)

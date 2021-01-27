@@ -1,11 +1,12 @@
 using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace vitamin
 {
     public enum UIType { FIX, DIALOG, FLOAT, ALERT };
 
-    public class UIManager
+    public class UIManager : MonoBehaviour
     {
         private FairyGUI.GComponent FixContainer;
         private FairyGUI.GComponent DialogContainer;
@@ -18,7 +19,9 @@ namespace vitamin
 
         internal EventEmitter _emitter;
 
-        public UIManager()
+  
+            
+        public void initialize()
         {
             this.map = new Dictionary<Type, ViewFairy>();
             this.openlist = new List<ViewFairy>();
@@ -33,21 +36,34 @@ namespace vitamin
             this.TipContainer = new FairyGUI.GComponent();
             FairyGUI.GRoot.inst.AddChild(this.TipContainer);
         }
-            
-        public void initialize()
-        {
 
-        }
-
+        /// <summary>
+        /// 加载资源包
+        /// </summary>
+        /// <returns></returns>
         public void Load(string path)
         {
             FairyGUI.UIPackage.AddPackage(path);
-            DefaultUIPackName = path.LastIndexOf("/") >= 0 ? path.Substring(path.LastIndexOf("/"), path.Length) : path;
+            if(DefaultUIPackName==null) DefaultUIPackName = path.LastIndexOf("/") >= 0 ? path.Substring(path.LastIndexOf("/"), path.Length) : path;
         }
 
-        public void Register<T>(UIType uitype, string uiresname, string respackname = null) where T: ViewFairy
+        /// <summary>
+        /// 注册界面
+        /// </summary>
+        /// <param name="uitype">UI显示类型</param>
+        /// <param name="uiresname">UI资源名称,默认为UIType的类名称</param>
+        /// <param name="respackname">UI所属资源包,默认为加载包名</param>
+        /// <returns></returns>
+        public void Register<T>(UIType uitype, string uiresname=null, string respackname = null) where T: ViewFairy
         {
             Type viewType = typeof(T);
+            if(uiresname==null){
+                uiresname=viewType.Name;
+                if(uiresname.IndexOf(".")>0){
+                    uiresname=uiresname.Substring(uiresname.IndexOf('.')+1);
+                }
+            }
+            Logger.Log(uiresname);
             object[] args = { uiresname, respackname != null ? respackname : DefaultUIPackName, uitype };
             
             T view = Injector.createView<T>(args);
@@ -55,6 +71,10 @@ namespace vitamin
             this.map[viewType] = view;
         }
 
+        /// <summary>
+        /// 打开界面
+        /// </summary>
+        /// <returns></returns>
         public T Open<T>() where T : ViewFairy
         {
             Type ViewClazz = typeof(T);
@@ -83,6 +103,10 @@ namespace vitamin
             return (T)view;
         }
 
+        /// <summary>
+        /// 关闭界面
+        /// </summary>
+        /// <returns></returns>
         public void Close<T>() where T : ViewFairy
         {
             Type ViewClazz = typeof(T);

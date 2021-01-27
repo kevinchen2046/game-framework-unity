@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace vitamin
+namespace vitamin.utils
 {
-    public class TimeUtil
+    public class Timer
     {
 
         static public void Delay(int time, Action<object, System.Timers.ElapsedEventArgs> method)

@@ -1,5 +1,6 @@
 ﻿using vitamin;
-public class AudioManager
+using UnityEngine;
+public class AudioManager:MonoBehaviour
 {
     
 }

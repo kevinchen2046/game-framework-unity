@@ -244,9 +244,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65e400ed5fd3dff45adc5675e02a8e00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scaler: {fileID: 789800210}
-  ui: {fileID: 1835537178}
-  game: {fileID: 780333969}
+  uiScaler: {fileID: 789800210}
+  uiContext: {fileID: 1835537178}
+  gameContext: {fileID: 780333969}
+  fpsEnabled: 1
+  memoryEnabled: 1
+  deviceEnabled: 0
+  debugHotKey: 288
 --- !u!4 &1197068865
 Transform:
   m_ObjectHideFlags: 0

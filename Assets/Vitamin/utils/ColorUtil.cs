@@ -1,3 +1,5 @@
+using UnityEngine;
+
 namespace vitamin { 
     public class ColorUtil
     {
@@ -6,8 +8,12 @@ namespace vitamin {
             return "#" + MathUtil.toHex(value);
         }
 
+        public static string Color32ToHex(Color32 color)
+        {
+            return color.r.ToString("x2") + color.g.ToString("x2") + color.b.ToString("x2") + color.a.ToString("x2");
+        }
         /**
-		 * ÑÕÉ«±äÁÁ 
+		 * é¢œè‰²å˜äº® 
 		 * @return 
 		 * 
 		 */
@@ -18,7 +24,7 @@ namespace vitamin {
         }
 
         /**
-         * ÑÕÉ«±ä°µ
+         * é¢œè‰²å˜æš—
          * @return 
          * 
          */
@@ -29,7 +35,7 @@ namespace vitamin {
         }
 
         /**
-         * ´ÓÑÕÉ«ÖµÖĞÌáÈ¡ÈıÔ­É« 
+         * ä»é¢œè‰²å€¼ä¸­æå–ä¸‰åŸè‰² 
          * @param color
          * @return 
          * 
@@ -46,7 +52,7 @@ namespace vitamin {
         }
 
         /**
-         * ½«ÈıÔ­É«ºÏ²¢ 
+         * å°†ä¸‰åŸè‰²åˆå¹¶ 
          * @param r
          * @param g
          * @param b
@@ -65,7 +71,7 @@ namespace vitamin {
         }
 
         /**
-		 * ´Ó32Î»ÑÕÉ«ÖµÖĞÌáÈ¡ÈıÔ­É« 
+		 * ä»32ä½é¢œè‰²å€¼ä¸­æå–ä¸‰åŸè‰² 
 		 * @param color
 		 * @return 
 		 * 
@@ -80,7 +86,7 @@ namespace vitamin {
         }
 
         /**
-		 * ½«´øÓĞÍ¨µÀĞÅÏ¢µÄÈıÔ­É«ºÏ²¢ 
+		 * å°†å¸¦æœ‰é€šé“ä¿¡æ¯çš„ä¸‰åŸè‰²åˆå¹¶ 
 		 * @param r
 		 * @param g
 		 * @param b
@@ -100,9 +106,9 @@ namespace vitamin {
         }
 
         /**
-		 * ÑÕÉ«Ïà¼Ó
+		 * é¢œè‰²ç›¸åŠ 
 		 * @param color
-		 * @param arg ÆäËûÑÕÉ«
+		 * @param arg å…¶ä»–é¢œè‰²
 		 * @return 
 		 */
         public static int add(int color, params int[] colors)
@@ -124,7 +130,7 @@ namespace vitamin {
         }
 
         /**
-         * ÑÕÉ«Ïà¼õ
+         * é¢œè‰²ç›¸å‡
          * @param color
          * @param other
          * @return 
@@ -147,7 +153,7 @@ namespace vitamin {
         }
 
         /**
-         * ´Ó32Î»ÑÕÉ«ÖĞÌáÈ¡Í¸Ã÷Í¨µÀµÄÖµ 
+         * ä»32ä½é¢œè‰²ä¸­æå–é€æ˜é€šé“çš„å€¼ 
          * @param color
          * @return 
          */

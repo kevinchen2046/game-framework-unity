@@ -1,5 +1,6 @@
-﻿using vitamin;
-public class ResManager
+﻿using UnityEngine;
+using vitamin;
+public class ResManager : MonoBehaviour
 {
 
 }

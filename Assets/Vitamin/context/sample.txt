@@ -2,6 +2,7 @@
 using vitamin;
 using game.view;
 using UnityEngine;
+using System.Text.RegularExpressions;
 
 namespace game { 
     public class UI : Context
@@ -9,14 +10,21 @@ namespace game {
         [Tooltip("多个资源请用,号隔开")]
         public string respack= "game";
 
-        MainView mainView;
         override internal void initialize()
         {
-            Vitamin.inst.manager.ui.Load(respack);
-            Vitamin.inst.manager.ui.Register<MainView>(vitamin.UIType.FIX, "MainView");
-     
-            Vitamin.inst.manager.ui.Open<MainView>();
-            mainView = Vitamin.inst.manager.ui.Get<MainView>();
+            //解析包名称
+            string[] list = Regex.Split(respack,",");
+            foreach(var res in list){
+                 Vitamin.inst.ui.Load(res);
+            }
+            //注册界面
+            Vitamin.inst.ui.Register<MainView>(vitamin.UIType.FIX);
+            
+            //打开界面
+            Vitamin.inst.ui.Open<MainView>();
+            
+            //取得界面引用
+            MainView mainView = Vitamin.inst.ui.Get<MainView>();
         }
     }
 }
@@ -31,11 +39,11 @@ namespace game
     {
         override internal void initialize()
         {
-
             GameObject cc = GameObject.CreatePrimitive(PrimitiveType.Cube);
             cc.transform.parent = this.GetComponent<Transform>();
             bool b = true;
-            onEvent<vitamin.Event>("SHARE_CLICK", (vitamin.Event e) =>
+            //监听框架事件
+            this.onEvent<vitamin.Event>("SHARE_CLICK", (vitamin.Event e) =>
             {
                 //vitamin.Logger.Log(e.ToString());
                 if (b)
@@ -48,8 +56,6 @@ namespace game
                 }
                 b = !b;
             });
-            Debug.DrawLine(Vector3.zero, Vector3.one);
-            Debug.Log("Test!");
         }
 
         void eventhandler(vitamin.Event e)

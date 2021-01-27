@@ -6,7 +6,7 @@ using UnityEditor;
 using UnityEngine;
 namespace vitamin
 {
-    public class VitaminEditor
+    public class CustomEditor
     {
 
         [MenuItem("💊维他命💊/生成Entry", true)]
@@ -53,14 +53,15 @@ namespace vitamin
             Component scalerComponent = UIContentScalarObject.AddComponent(UIContentScalarType) as FairyGUI.UIContentScaler;
             UIContentScalarObject.transform.parent = VitaminObject.transform;
 
+
             SetPropertyValue(scalerComponent, "scaleMode", FairyGUI.UIContentScaler.ScaleMode.ScaleWithScreenSize);
             SetPropertyValue(scalerComponent, "designResolutionX", 640);
             SetPropertyValue(scalerComponent, "designResolutionY", 1136);
             SetPropertyValue(scalerComponent, "screenMatchMode", FairyGUI.UIContentScaler.ScreenMatchMode.MatchWidthOrHeight);
 
-            SetPropertyValue(vitaminComponent, "ui", uiComponent);
-            SetPropertyValue(vitaminComponent, "game", gameComponent);
-            SetPropertyValue(vitaminComponent, "scaler", scalerComponent);
+            SetPropertyValue(vitaminComponent, "uiContext", uiComponent);
+            SetPropertyValue(vitaminComponent, "gameContext", gameComponent);
+            SetPropertyValue(vitaminComponent, "uiScaler", scalerComponent);
 
             Debug.LogFormat("Vitamin 框架创建成功!");
         }
@@ -75,7 +76,7 @@ namespace vitamin
                 return;
             }
             srcFolder.Create();
-            FileInfo sampleFile = new FileInfo(Application.dataPath + "/Vitamin/entry/sample.txt");
+            FileInfo sampleFile = new FileInfo(Application.dataPath + "/Vitamin/context/sample.txt");
             using (FileStream stream = sampleFile.OpenRead())
             {
                 byte[] data = new byte[stream.Length];
@@ -130,7 +131,7 @@ namespace vitamin
                 byte[] filedata = System.Text.Encoding.UTF8.GetBytes(content);
                 filestream.Write(filedata, 0, filedata.Length);
                 filestream.Close();
-                Debug.Log("写入文件" + name + "完成!");
+                alert(String.Format("写入文件{0}完成!",name));
             }
         }
 
@@ -142,9 +143,10 @@ namespace vitamin
         [MenuItem("💊维他命💊/打包Entry", false)]
         public static void ___VitaminEntryPack()
         {
+            
             if (UnityEditor.CloudProjectSettings.userName != "kevin-chen@foxmail.com")
             {
-                Logger.Error("你无权进行此操作!");
+                alert("你无权进行此操作!");
                 return;
             }
             string[] filePaths = { "UI.cs", "Game.cs", "command/CmdRename.cs", "model/ModelUser.cs", "view/MainView.cs" };
@@ -173,7 +175,7 @@ namespace vitamin
                     byte[] data = System.Text.Encoding.UTF8.GetBytes(sample);
                     stream.Write(data, 0, data.Length);
                     stream.Close();
-                    Debug.Log("打包Sample完成!");
+                    alert("打包Sample完成!");
                 }
             }
         }
@@ -217,6 +219,10 @@ namespace vitamin
                     break;
                 }
             }
+        }
+
+        private static bool alert(string content,bool showcancel=false){
+            return EditorUtility.DisplayDialog("提示",content,"确定",showcancel?"取消":null);
         }
     }
 }

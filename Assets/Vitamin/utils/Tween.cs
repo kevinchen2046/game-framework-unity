@@ -70,6 +70,10 @@ namespace vitamin
     public delegate void TweenStartHandler(Tween tween);
     public delegate void TweenCompleteHandler(Tween tween);
     public delegate void TweenUpdateHandler(Tween tween, float progress);
+
+    /// <summary>
+    /// Tween 封装了FGUITween和ITween,接口统一
+    /// </summary>
     public class Tween : FairyGUI.ITweenListener
     {
         public object target;

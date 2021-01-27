@@ -17,55 +17,92 @@ namespace vitamin
         static Dictionary<string, CommandBase> __cmds;
         static Dictionary<Type, object> __instances;
 
-        static public void initialize()
+        static Dictionary<Type, List<Type>> __groups;
+
+        /// <summary>
+        /// 初始化类反射注入
+        /// </summary>
+        /// <param name="basetypes">当前需要获取的子类集合的父类类型</param>
+        static public void initialize(params Type[] basetypes)
         {
-            Injector.__views = new Dictionary<Type, ViewBase>();
-            Injector.__modles = new Dictionary<Type, IModel>();
-            Injector.__cmds = new Dictionary<string, CommandBase>();
-            Injector.__instances = new Dictionary<Type, object>();
+            __groups = new Dictionary<Type, List<Type>>();
+            foreach (var type in basetypes)
+            {
+                __groups[type] = new List<Type>();
+            }
+            __groups[typeof(ModelBase)] = new List<Type>();
+            __groups[typeof(ViewBase)] = new List<Type>();
+            __groups[typeof(CommandBase)] = new List<Type>();
+
 
             var types = Assembly.GetCallingAssembly().GetTypes();
-            var modelBaseType = typeof(ModelBase);
-            var viewBaseType = typeof(ViewBase);
-            var cmdBaseType = typeof(CommandBase);
-
-            var net = new Net();
             foreach (var type in types)
             {
                 //获取基类
                 var baseType = type.BaseType;
                 while (true)
-                {   
-                    if(baseType==null) break;
-                    if(baseType==modelBaseType) break;
-                    if(baseType==viewBaseType) break;
-                    if(baseType==cmdBaseType) break;
-                    if(baseType.BaseType==null) break;
-                    baseType=baseType.BaseType;
+                {
+                    if (baseType == null) break;
+                    if (baseType.BaseType == null) break;
+                    bool hasBase = false;
+                    foreach (var item in __groups)
+                    {
+                        if (baseType == item.Key)
+                        {
+                            hasBase = true;
+                            break;
+                        }
+                    }
+                    if (hasBase) break;
+                    baseType = baseType.BaseType;
                 }
+                foreach (var item in __groups)
+                {
+                    if (item.Key == baseType)
+                    {
+                        item.Value.Add(type);
+                        break;
+                    }
+                }
+            }
 
-                if (baseType == modelBaseType)
+            initializeMVC();
+        }
+
+        private static void initializeMVC() { 
+    
+            Injector.__views = new Dictionary<Type, ViewBase>();
+            Injector.__modles = new Dictionary<Type, IModel>();
+            Injector.__cmds = new Dictionary<string, CommandBase>();
+            Injector.__instances = new Dictionary<Type, object>();
+
+            List<Type> modleTypes = getChildrenTypes(typeof(ModelBase));
+            foreach (var modelType in modleTypes)
+            {
+                IModel model = Activator.CreateInstance(modelType) as IModel;
+                Injector.__modles.Add(modelType, model);
+            }
+
+            List<Type> viewTypes = getChildrenTypes(typeof(ViewBase));
+            foreach (var viewType in viewTypes)
+            {
+                Injector.__views.Add(viewType, null);
+            }
+
+            var net = new Net();
+            List<Type> cmdTypes = getChildrenTypes(typeof(CommandBase));
+            foreach (var cmdType in cmdTypes)
+            {
+                CmdRoute des = (CmdRoute)cmdType.GetCustomAttribute(typeof(CmdRoute));
+                if (des == null)
                 {
-                    IModel model = Activator.CreateInstance(type) as IModel;
-                    Injector.__modles.Add(type, model);
+                    Logger.Error(cmdType.ToString() + "没有添加描述信息!");
                 }
-                else if (baseType == viewBaseType)
+                else
                 {
-                    Injector.__views.Add(type, null);
-                }
-                else if (baseType == cmdBaseType)
-                {
-                    CmdRoute des = (CmdRoute)type.GetCustomAttribute(typeof(CmdRoute));
-                    if (des == null)
-                    {
-                        Logger.Error(baseType.ToString() + "没有添加描述信息!");
-                    }
-                    else
-                    {
-                        CommandBase cmd = Activator.CreateInstance(type) as CommandBase;
-                        cmd.net = net;
-                        Injector.__cmds.Add(des.routId, cmd);
-                    }
+                    CommandBase cmd = Activator.CreateInstance(cmdType) as CommandBase;
+                    cmd.net = net;
+                    Injector.__cmds.Add(des.routId, cmd);
                 }
             }
 
@@ -93,7 +130,20 @@ namespace vitamin
                 Injector.injectInstance(cmd.Value, cmd.Value.GetType());
                 bool result = Injector.injectModel(cmd.Value, cmd.Value.GetType());
             }
-            Logger.Info("🎇✨🎉✨🛠💊 --------- Vitamin Start --------- 💊🛠✨🎉✨🎇");
+        }
+
+        /// <summary>
+        /// 获取该类型的所有子类
+        /// </summary>
+        /// <param name="basetype">该基类类型</param>
+        /// <returns></returns>
+        static public List<Type> getChildrenTypes(Type basetype)
+        {
+            foreach(var item in __groups)
+            {
+                if (item.Key == basetype) return item.Value;
+            }
+            return null;
         }
 
         /// <summary>

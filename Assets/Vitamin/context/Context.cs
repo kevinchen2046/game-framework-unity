@@ -4,8 +4,6 @@ namespace vitamin
 {
     public class Context : MonoBehaviour
     {
-        internal Mananger __manager;
-        public Mananger manager { get { return __manager; } }
 
         internal EventEmitter __emitter;
         public Context()

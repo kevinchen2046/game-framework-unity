@@ -1,6 +1,7 @@
 ﻿
+using UnityEngine;
 using vitamin;
-public class GuideManager
+public class GuideManager : MonoBehaviour
 {
 
 }

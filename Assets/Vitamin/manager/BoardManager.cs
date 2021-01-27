@@ -1,6 +1,8 @@
 ﻿
+using UnityEngine;
 using vitamin;
-public class BoardManager
+
+public class BoardManager : MonoBehaviour
 {
 
 }
